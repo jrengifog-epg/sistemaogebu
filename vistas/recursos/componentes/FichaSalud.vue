@@ -1400,17 +1400,6 @@ export default {
             this.$refs.html2Pdf.generatePdf();
             
         },
-        // discapacidad(id_alumno){
-        //     let me = this;
-        //     var url1= '/discapacidad';
-        //     axios.post(url1,{'id_alumno':id_alumno}).then(function (response) {
-        //         let respuesta = response.data;
-        //         me.arrayDiscapacidad=respuesta;
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     });
-        // },
         laodHistorial(id_alumno){
             let me = this;
             var url1= '/historial_medico';

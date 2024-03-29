@@ -643,9 +643,9 @@
                                             <option value="4">Victimas del Terrorismo</option>
                                             <option value="5">Traslado Interno</option>
                                             <option value="6">Traslado Externo</option>
-                                            <option value="7">Convenio IPAE</option>
+                                            <!-- <option value="7">Convenio IPAE</option>
                                             <option value="8">Convenio IST PADAH</option>
-                                            <option value="9">TTercio Superior 5º Sec.</option>
+                                            <option value="9">Tercio Superior 5º Sec.</option> -->
                                             <option value="10">Discapacitados</option>
                                             <option value="11">Deportistas Calificado</option>
                                             <option value="12">Profesionales</option>

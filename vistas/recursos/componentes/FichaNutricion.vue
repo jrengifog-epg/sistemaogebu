@@ -322,7 +322,7 @@
                                             class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md "  v-model="alergias"></textarea>
                                     </div>
                                     <div class="col-span-6">
-                                        <legend class="text-base font-medium text-gray-900">5. Diagnostico Nutricional</legend>
+                                        <legend class="text-base font-medium text-gray-900">5. Observación</legend>
                                     </div>
                                     <div class="col-span-6 ">
                                         <textarea rows="5" 
