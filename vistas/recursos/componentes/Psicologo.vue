@@ -219,9 +219,9 @@
                                             <h3 class="text-lg leading-6 font-medium text-gray-900" v-text="nombres+' '+apellidos">
                                                 
                                             </h3>
-                                            <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                                            <!-- <p class="mt-1 max-w-2xl text-sm text-gray-500">
                                                 Ultima actualización el 21 de mayo de 2022
-                                            </p>
+                                            </p> -->
                                         </div>
                                         <div class="border-t border-gray-200">
                                             <dl>
@@ -236,30 +236,21 @@
                                                     </dd>
                                                 </div>
                                                 <div class="border-t border-gray-100"></div>
-                                                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                     <dt class="text-sm font-medium text-gray-500">
-                                                        HABILIDADES SOCIALES
+                                                        Inventario de Depresión de Beck
                                                     </dt>
                                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                                        -
+                                                     {{idb}}
                                                     </dd>
                                                 </div>
                                                 <div class="border-t border-gray-100"></div>
                                                 <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                     <dt class="text-sm font-medium text-gray-500">
-                                                        INDICE EAA
+                                                        Evaluación de Síntoma S.R.Q.
                                                     </dt>
                                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                                     {{indiceEaa}}
-                                                    </dd>
-                                                </div>
-                                                <div class="border-t border-gray-100"></div>
-                                                <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                                    <dt class="text-sm font-medium text-gray-500">
-                                                        INDICE EAMD
-                                                    </dt>
-                                                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                                        {{indiceEamd}}
+                                                        {{srq}}
                                                     </dd>
                                                 </div>
                                                 <div class="border-t border-gray-100"></div>
@@ -455,8 +446,8 @@ export default {
             año_constancia:'',
             fecha:'',
             /**resultados */
-            indiceEaa:'',
-            indiceEamd:'',
+            idb:'',
+            srq:'',
         }
     },
     components:{
@@ -624,7 +615,7 @@ export default {
             this.$refs.psicologica.generatePdf();
             
         },
-         top(){
+        top(){
             
             $('body, html').animate({
                 scrollTop: '0px',
@@ -652,26 +643,36 @@ export default {
             }
         },
         loadIndices(id_alumno){
-            var url1 = '/indiceEaa';
+            let me = this;
+            var url1 = '/countidb';
             axios.post(url1,{'id_alumno':id_alumno}).then((response) => {
                     var respuesta = response.data;
-                    this.indiceEaa=respuesta;
+                    console.log(respuesta);
+                   if(parseInt(respuesta[0]['cantidad']) > 0){
+                        me.idb = "EVALUADO"
+                    }else{
+                        me.idb = "NO EVALUADO"
+                    }
 
                 })
                 .catch(function(error) {
                     // handle error
                     console.log(error);
-            });
-             var url2 = '/indiceEamd';
+                });
+            var url2 = '/countsqr';
             axios.post(url2,{'id_alumno':id_alumno}).then((response) => {
                     var respuesta = response.data;
-                    this.indiceEamd=respuesta;
+                    if(parseInt(respuesta[0]['cantidad']) > 0){
+                        me.srq = "EVALUADO"
+                    }else{
+                        me.srq = "NO EVALUADO"
+                    }
 
                 })
                 .catch(function(error) {
                     // handle error
                     console.log(error);
-            });
+                });
         }
     },
     mounted(){
