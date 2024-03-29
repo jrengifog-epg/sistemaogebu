@@ -4,7 +4,7 @@ function con (){
 		$usuario = "root";
 	   	$password = "";
 	    $servidor = "localhost";
-	    $basededatos = "db_ogebu_gratis";
+	    $basededatos = "db_ogebu";
 		// $usuario = "bienestar";
 	   	// $password = "BienestarAPP";
 	    // $servidor = "localhost";

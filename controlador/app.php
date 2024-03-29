@@ -665,132 +665,46 @@
 						} 	  
 						echo json_encode($rspta);
 				break;
-				case 'guardarpersonalidad':
+				case 'guardaridb':
 					/**Test Personalidad */
 					$pa_1=$datos->pa_1;$pa_2=$datos->pa_2;$pa_3=$datos->pa_3;$pa_4=$datos->pa_4;$pa_5=$datos->pa_5;
 					$pa_6=$datos->pa_6;$pa_7=$datos->pa_7;$pa_8=$datos->pa_8;$pa_9=$datos->pa_9;$pa_10=$datos->pa_10;
 					$pa_11=$datos->pa_11;$pa_12=$datos->pa_12;$pa_13=$datos->pa_13;$pa_14=$datos->pa_14;$pa_15=$datos->pa_15;
 					$pa_16=$datos->pa_16;$pa_17=$datos->pa_17;$pa_18=$datos->pa_18;$pa_19=$datos->pa_19;$pa_20=$datos->pa_20;
-					$pa_21=$datos->pa_21;$pa_22=$datos->pa_22;$pa_23=$datos->pa_23;$pa_24=$datos->pa_24;$pa_25=$datos->pa_25;
-					$pa_26=$datos->pa_26;$pa_27=$datos->pa_27;$pa_28=$datos->pa_28;$pa_29=$datos->pa_29;$pa_30=$datos->pa_30;
-					$pa_31=$datos->pa_31;$pa_32=$datos->pa_32;$pa_33=$datos->pa_33;$pa_34=$datos->pa_34;$pa_35=$datos->pa_35;
-					$pa_36=$datos->pa_36;$pa_37=$datos->pa_37;$pa_38=$datos->pa_38;$pa_39=$datos->pa_39;$pa_40=$datos->pa_40;
-					$pa_41=$datos->pa_41;$pa_42=$datos->pa_42;$pa_43=$datos->pa_43;$pa_44=$datos->pa_44;$pa_45=$datos->pa_45;
-					$pa_46=$datos->pa_46;$pa_47=$datos->pa_47;$pa_48=$datos->pa_48;$pa_49=$datos->pa_49;$pa_50=$datos->pa_50;
-					$pa_51=$datos->pa_51;$pa_52=$datos->pa_52;$pa_53=$datos->pa_53;$pa_54=$datos->pa_54;$pa_55=$datos->pa_55;
-					$pa_56=$datos->pa_56;$pa_57=$datos->pa_57;
+					$pa_21=$datos->pa_21;
 					$id_alumno= $datos->id_alumno;
-					$consulta="INSERT INTO personalidad (pregunta_1, pregunta_2, pregunta_3, pregunta_4, pregunta_5, pregunta_6, 
+					$consulta="INSERT INTO evalucion_idb(pregunta_1, pregunta_2, pregunta_3, pregunta_4, pregunta_5, pregunta_6, 
 					pregunta_7, pregunta_8, pregunta_9, pregunta_10, pregunta_11, pregunta_12, pregunta_13, pregunta_14, 
-					pregunta_15, pregunta_16, pregunta_17, pregunta_18, pregunta_19, pregunta_20, pregunta_21, pregunta_22, 
-					pregunta_23, pregunta_24, pregunta_25, pregunta_26, pregunta_27, pregunta_28, pregunta_29, pregunta_30, 
-					pregunta_31, pregunta_32, pregunta_33, pregunta_34, pregunta_35, pregunta_36, pregunta_37, pregunta_38, 
-					pregunta_39, pregunta_40, pregunta_41, pregunta_42, pregunta_43, pregunta_44, pregunta_45, pregunta_46, 
-					pregunta_47, pregunta_48, pregunta_49, pregunta_50, pregunta_51, pregunta_52, pregunta_53, pregunta_54, 
-					pregunta_55, pregunta_56, pregunta_57,id_alumno)
+					pregunta_15, pregunta_16, pregunta_17, pregunta_18, pregunta_19, pregunta_20, pregunta_21,
+					id_alumno)
 					Values($pa_1,$pa_2,$pa_3,$pa_4,$pa_5,$pa_6,$pa_7,$pa_8,$pa_9,$pa_10,$pa_11,$pa_12,$pa_13,$pa_14,$pa_15,
-					$pa_16,$pa_17,$pa_18,$pa_19,$pa_20,$pa_21,$pa_22,$pa_23,$pa_24,$pa_25,$pa_26,$pa_27,
-					$pa_28,$pa_29,$pa_30,$pa_31,$pa_32,$pa_33,$pa_34,$pa_35,$pa_36,$pa_37,$pa_38,$pa_39,
-					$pa_40,$pa_41,$pa_42,$pa_43,$pa_44,$pa_45,$pa_46,$pa_47,$pa_48,$pa_49,$pa_50,
-					$pa_51,$pa_52,$pa_53,$pa_54,$pa_55,$pa_56,$pa_57,$id_alumno)";
+					'$pa_16',$pa_17,'$pa_18',$pa_19,$pa_20,$pa_21,$id_alumno)";
 					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 					echo json_encode($rspta);
 				break;
-				case 'guardarhabilidad':
+				case 'guardarsqr':
 					/**Test Social */
 					$pb_1=$datos->pb_1;$pb_2=$datos->pb_2;$pb_3=$datos->pb_3;$pb_4=$datos->pb_4;$pb_5=$datos->pb_5;
 					$pb_6=$datos->pb_6;$pb_7=$datos->pb_7;$pb_8=$datos->pb_8;$pb_9=$datos->pb_9;$pb_10=$datos->pb_10;
 					$pb_11=$datos->pb_11;$pb_12=$datos->pb_12;$pb_13=$datos->pb_13;$pb_14=$datos->pb_14;$pb_15=$datos->pb_15;
 					$pb_16=$datos->pb_16;$pb_17=$datos->pb_17;$pb_18=$datos->pb_18;$pb_19=$datos->pb_19;$pb_20=$datos->pb_20;
 					$pb_21=$datos->pb_21;$pb_22=$datos->pb_22;$pb_23=$datos->pb_23;$pb_24=$datos->pb_24;$pb_25=$datos->pb_25;
-					$pb_26=$datos->pb_26;$pb_27=$datos->pb_27;$pb_28=$datos->pb_28;$pb_29=$datos->pb_29;$pb_30=$datos->pb_30;
-					$pb_31=$datos->pb_31;$pb_32=$datos->pb_32;$pb_33=$datos->pb_33;$pb_34=$datos->pb_34;$pb_35=$datos->pb_35;
-					$pb_36=$datos->pb_36;$pb_37=$datos->pb_37;$pb_38=$datos->pb_38;$pb_39=$datos->pb_39;$pb_40=$datos->pb_40;
-					$pb_41=$datos->pb_41;$pb_42=$datos->pb_42;
+					$pb_26=$datos->pb_26;$pb_27=$datos->pb_27;$pb_28=$datos->pb_28;
 					$id_alumno= $datos->id_alumno;
-					$consulta="INSERT INTO habilidades_sociales (pregunta_1, pregunta_2, pregunta_3, pregunta_4, pregunta_5, pregunta_6, 
+					$consulta="INSERT INTO evaluacion_srq (pregunta_1, pregunta_2, pregunta_3, pregunta_4, pregunta_5, pregunta_6, 
 					pregunta_7, pregunta_8, pregunta_9, pregunta_10, pregunta_11, pregunta_12, pregunta_13, pregunta_14, 
 					pregunta_15, pregunta_16, pregunta_17, pregunta_18, pregunta_19, pregunta_20, pregunta_21, pregunta_22, 
-					pregunta_23, pregunta_24, pregunta_25, pregunta_26, pregunta_27, pregunta_28, pregunta_29, pregunta_30, 
-					pregunta_31, pregunta_32, pregunta_33, pregunta_34, pregunta_35, pregunta_36, pregunta_37, pregunta_38, 
-					pregunta_39, pregunta_40, pregunta_41, pregunta_42,id_alumno)
+					pregunta_23, pregunta_24, pregunta_25, pregunta_26, pregunta_27, pregunta_28,id_alumno)
 					Values($pb_1,$pb_2,$pb_3,$pb_4,$pb_5,$pb_6,$pb_7,$pb_8,$pb_9,$pb_10,$pb_11,$pb_12,$pb_13,$pb_14,$pb_15,
 					$pb_16,$pb_17,$pb_18,$pb_19,$pb_20,$pb_21,$pb_22,$pb_23,$pb_24,$pb_25,$pb_26,$pb_27,
-					$pb_28,$pb_29,$pb_30,$pb_31,$pb_32,$pb_33,$pb_34,$pb_35,$pb_36,$pb_37,$pb_38,$pb_39,
-					$pb_40,$pb_41,$pb_42,$id_alumno)";
+					$pb_28,$id_alumno)";
 					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 					echo json_encode($rspta);
 				break;
-				case 'guardarEaa':
-					$pc_1=$datos->pc_1;$pc_2=$datos->pc_2;$pc_3=$datos->pc_3;$pc_4=$datos->pc_4;$pc_5=$datos->pc_5;
-					$pc_6=$datos->pc_6;$pc_7=$datos->pc_7;$pc_8=$datos->pc_8;$pc_9=$datos->pc_9;$pc_10=$datos->pc_10;
-					$pc_11=$datos->pc_11;$pc_12=$datos->pc_12;$pc_13=$datos->pc_13;$pc_14=$datos->pc_14;$pc_15=$datos->pc_15;
-					$pc_16=$datos->pc_16;$pc_17=$datos->pc_17;$pc_18=$datos->pc_18;$pc_19=$datos->pc_19;$pc_20=$datos->pc_20;
-					$id_alumno= $datos->id_alumno;
-					$consulta="INSERT INTO indice_eaa (pregunta_1, pregunta_2, pregunta_3, pregunta_4, pregunta_5, pregunta_6, 
-					pregunta_7, pregunta_8, pregunta_9, pregunta_10, pregunta_11, pregunta_12, pregunta_13, pregunta_14, 
-					pregunta_15, pregunta_16, pregunta_17, pregunta_18, pregunta_19, pregunta_20,id_alumno)
-					Values($pc_1,$pc_2,$pc_3,$pc_4,$pc_5,$pc_6,$pc_7,$pc_8,$pc_9,$pc_10,$pc_11,$pc_12,$pc_13,$pc_14,$pc_15,
-					$pc_16,$pc_17,$pc_18,$pc_19,$pc_20,$id_alumno)";
-					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-					echo json_encode($rspta);
-				break;
-				case 'guardarEamd':
-					$pd_1=$datos->pd_1;$pd_2=$datos->pd_2;$pd_3=$datos->pd_3;$pd_4=$datos->pd_4;$pd_5=$datos->pd_5;
-					$pd_6=$datos->pd_6;$pd_7=$datos->pd_7;$pd_8=$datos->pd_8;$pd_9=$datos->pd_9;$pd_10=$datos->pd_10;
-					$pd_11=$datos->pd_11;$pd_12=$datos->pd_12;$pd_13=$datos->pd_13;$pd_14=$datos->pd_14;$pd_15=$datos->pd_15;
-					$pd_16=$datos->pd_16;$pd_17=$datos->pd_17;$pd_18=$datos->pd_18;$pd_19=$datos->pd_19;$pd_20=$datos->pd_20;
-					$id_alumno= $datos->id_alumno;
-					$consulta="INSERT INTO indice_eamd (pregunta_1, pregunta_2, pregunta_3, pregunta_4, pregunta_5, pregunta_6, 
-					pregunta_7, pregunta_8, pregunta_9, pregunta_10, pregunta_11, pregunta_12, pregunta_13, pregunta_14, 
-					pregunta_15, pregunta_16, pregunta_17, pregunta_18, pregunta_19, pregunta_20,id_alumno)
-					Values($pd_1,$pd_2,$pd_3,$pd_4,$pd_5,$pd_6,$pd_7,$pd_8,$pd_9,$pd_10,$pd_11,$pd_12,$pd_13,$pd_14,$pd_15,
-					$pd_16,$pd_17,$pd_18,$pd_19,$pd_20,$id_alumno)";
-					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-					echo json_encode($rspta);
-				break;
-				case 'guardarAprendisaje':
-					$pe_1=$datos->pe_1;$pe_2=$datos->pe_2;$pe_3=$datos->pe_3;$pe_4=$datos->pe_4;$pe_5=$datos->pe_5;
-					$pe_6=$datos->pe_6;$pe_7=$datos->pe_7;$pe_8=$datos->pe_8;$pe_9=$datos->pe_9;$pe_10=$datos->pe_10;
-					$pe_11=$datos->pe_11;$pe_12=$datos->pe_12;$pe_13=$datos->pe_13;$pe_14=$datos->pe_14;$pe_15=$datos->pe_15;
-					$pe_16=$datos->pe_16;$pe_17=$datos->pe_17;$pe_18=$datos->pe_18;$pe_19=$datos->pe_19;$pe_20=$datos->pe_20;
-					$pe_21=$datos->pe_21;$pe_22=$datos->pe_22;$pe_23=$datos->pe_23;$pe_24=$datos->pe_24;$pe_25=$datos->pe_25;
-					$pe_26=$datos->pe_26;$pe_27=$datos->pe_27;$pe_28=$datos->pe_28;$pe_29=$datos->pe_29;$pe_30=$datos->pe_30;
-					$pe_31=$datos->pe_31;$pe_32=$datos->pe_32;$pe_33=$datos->pe_33;$pe_34=$datos->pe_34;$pe_35=$datos->pe_35;
-					$pe_36=$datos->pe_36;$pe_37=$datos->pe_37;$pe_38=$datos->pe_38;$pe_39=$datos->pe_39;$pe_40=$datos->pe_40;
-					$pe_41=$datos->pe_41;$pe_42=$datos->pe_42;$pe_43=$datos->pe_43;$pe_44=$datos->pe_44;$pe_45=$datos->pe_45;
-					$pe_46=$datos->pe_46;$pe_47=$datos->pe_47;$pe_48=$datos->pe_48;$pe_49=$datos->pe_49;$pe_50=$datos->pe_50;
-					$pe_51=$datos->pe_51;$pe_52=$datos->pe_52;$pe_53=$datos->pe_53;$pe_54=$datos->pe_54;$pe_55=$datos->pe_55;
-					$pe_56=$datos->pe_56;$pe_57=$datos->pe_57;$pe_58=$datos->pe_58;$pe_59=$datos->pe_59;$pe_60=$datos->pe_60;
-					$pe_61=$datos->pe_61;$pe_62=$datos->pe_62;$pe_63=$datos->pe_63;$pe_64=$datos->pe_64;$pe_65=$datos->pe_65;
-					$pe_66=$datos->pe_66;$pe_67=$datos->pe_67;$pe_68=$datos->pe_68;$pe_69=$datos->pe_69;$pe_70=$datos->pe_70;
-					$pe_71=$datos->pe_71;$pe_72=$datos->pe_72;$pe_73=$datos->pe_73;$pe_74=$datos->pe_74;$pe_75=$datos->pe_75;
-					$pe_76=$datos->pe_76;$pe_77=$datos->pe_77;$pe_78=$datos->pe_78;$pe_79=$datos->pe_79;$pe_80=$datos->pe_80;
-					$id_alumno= $datos->id_alumno;
-					$consulta="INSERT INTO habilidades_aprendisaje (pregunta_1, pregunta_2, pregunta_3, pregunta_4, pregunta_5, pregunta_6, 
-					pregunta_7, pregunta_8, pregunta_9, pregunta_10, pregunta_11, pregunta_12, pregunta_13, pregunta_14, pregunta_15, pregunta_16, 
-					pregunta_17, pregunta_18, pregunta_19, pregunta_20,pregunta_21,pregunta_22,pregunta_23,pregunta_24,pregunta_25,pregunta_26,
-					pregunta_27,pregunta_28, pregunta_29, pregunta_30,pregunta_31,pregunta_32,pregunta_33,pregunta_34,pregunta_35,pregunta_36,
-					pregunta_37,pregunta_38, pregunta_39, pregunta_40,pregunta_41,pregunta_42,pregunta_43,pregunta_44,pregunta_45,pregunta_46,
-					pregunta_47,pregunta_48, pregunta_49, pregunta_50,pregunta_51,pregunta_52,pregunta_53,pregunta_54,pregunta_55,pregunta_56,
-					pregunta_57,pregunta_58, pregunta_59, pregunta_60,pregunta_61,pregunta_62,pregunta_63,pregunta_64,pregunta_65,pregunta_66,
-					pregunta_67,pregunta_68, pregunta_69, pregunta_70,pregunta_71,pregunta_72,pregunta_73,pregunta_74,pregunta_75,pregunta_76,
-					pregunta_77,pregunta_78, pregunta_79, pregunta_80,id_alumno)
-					Values($pe_1,$pe_2,$pe_3,$pe_4,$pe_5,$pe_6,$pe_7,$pe_8,$pe_9,$pe_10,
-					$pe_11,$pe_12,$pe_13,$pe_14,$pe_15,$pe_16,$pe_17,$pe_18,$pe_19,$pe_20,
-					$pe_21,$pe_22,$pe_23,$pe_24,$pe_25,$pe_26,$pe_27,$pe_28,$pe_29,$pe_30,
-					$pe_31,$pe_32,$pe_33,$pe_34,$pe_35,$pe_36,$pe_37,$pe_38,$pe_39,$pe_40,
-					$pe_41,$pe_42,$pe_43,$pe_44,$pe_45,$pe_46,$pe_47,$pe_48,$pe_49,$pe_50,
-					$pe_51,$pe_52,$pe_53,$pe_54,$pe_55,$pe_56,$pe_57,$pe_58,$pe_59,$pe_60,
-					$pe_61,$pe_62,$pe_63,$pe_64,$pe_65,$pe_66,$pe_67,$pe_68,$pe_69,$pe_70,
-					$pe_71,$pe_72,$pe_73,$pe_74,$pe_75,$pe_76,$pe_77,$pe_78,$pe_79,$pe_80, $id_alumno)";
-					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-					echo json_encode($rspta);
-				break;
-				case 'countpersonalidad': 
+				case 'countidb': 
 					$id_alumno=$datos->id_alumno;
 					$consulta="SELECT count(id_alumno) as cantidad 
-							   FROM personalidad
+							   FROM evalucion_idb
 							   where id_alumno= $id_alumno";
 					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 					while ($row=mysqli_fetch_assoc($rspta)){
@@ -798,43 +712,10 @@
 					}
 					echo json_encode($response);
 				break;
-				case 'counthabilidad': 
+				case 'countsqr': 
 					$id_alumno=$datos->id_alumno;
 					$consulta="SELECT count(id_alumno) as cantidad 
-							   FROM habilidades_sociales
-							   where id_alumno= $id_alumno";
-					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-					while ($row=mysqli_fetch_assoc($rspta)){
-						$response[] = $row;
-					}
-					echo json_encode($response);
-				break;
-				case 'countEaa': 
-					$id_alumno=$datos->id_alumno;
-					$consulta="SELECT count(id_alumno) as cantidad 
-							   FROM indice_eaa
-							   where id_alumno= $id_alumno";
-					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-					while ($row=mysqli_fetch_assoc($rspta)){
-						$response[] = $row;
-					}
-					echo json_encode($response);
-				break;
-				case 'countEamd': 
-					$id_alumno=$datos->id_alumno;
-					$consulta="SELECT count(id_alumno) as cantidad 
-							   FROM indice_eamd
-							   where id_alumno= $id_alumno";
-					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-					while ($row=mysqli_fetch_assoc($rspta)){
-						$response[] = $row;
-					}
-					echo json_encode($response);
-				break;
-				case 'countAprendisaje': 
-					$id_alumno=$datos->id_alumno;
-					$consulta="SELECT count(id_alumno) as cantidad 
-							   FROM habilidades_aprendisaje
+							   FROM evaluacion_srq
 							   where id_alumno= $id_alumno";
 					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 					while ($row=mysqli_fetch_assoc($rspta)){
@@ -1169,7 +1050,7 @@
 				break;
 				case 'alumno':
 					$id_alumno=$datos->id_alumno;
-					$consulta="SELECT nombres,apellidopaterno,apellidomaterno,dni,escuela,facultad,ingreso,usuario,clave,modificar,validar
+					$consulta="SELECT nombres,apellidopaterno,apellidomaterno,dni,escuela,facultad,ingreso,usuario,clave,modificar
 								FROM alumnos where id_alumno=$id_alumno";
 					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 					while ($row=mysqli_fetch_assoc($rspta)){
