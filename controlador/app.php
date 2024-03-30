@@ -766,13 +766,12 @@
 					$enfermedad= $datos->enfermedad;
 					$medicamento= $datos->medicamento;
 					$discapacidad= $datos->discapacidad;
-					$covid= $datos->covid;
-					$diagnostico= $datos->diagnostico;
-					$fallecido= $datos->fallecido;
+					$secuela_covid= $datos->secuela_covid;
+					$dosis_vacuna= $datos->dosis_vacuna;
 					$servicio = $datos->servicio;
 					$id_alumno= $datos->id_alumno;
-					$consulta="INSERT INTO evaluacion_medica (presion_arterial,pulso,respiracion,temperatura,presintoma,enfermedad,diagnostico,alergia_medicamento,discapacidad,respuesta_covid,familiar_fallecidos,servicio,id_alumno)
-						Values('$presion_arterial','$pulso','$respiracion','$temperatura','$presintoma','$enfermedad','$diagnostico','$medicamento','$discapacidad','$covid','$fallecido','$servicio',$id_alumno)";
+					$consulta="INSERT INTO evaluacion_medica (presion_arterial,pulso,respiracion,temperatura,presintoma,enfermedad,alergia_medicamento,discapacidad,secuela_covid,dosis_vacuna,servicio,id_alumno)
+						Values('$presion_arterial','$pulso','$respiracion','$temperatura','$presintoma','$enfermedad','$medicamento','$discapacidad','$secuela_covid','$dosis_vacuna','$servicio',$id_alumno)";
 					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos1".$consulta);
 					/**MEDICAMENTOS*/
 					if($medicamento==1){
@@ -790,45 +789,36 @@
 								}
 						}
 					}
-					/**Sintomas*/
-					if($covid==1){
-						$sintomas= $datos->sintomas;
-						for ($i=0;$i<count($sintomas) ;$i++)      
-						{ 		
-								$consulta2="INSERT INTO sintomas_covid ( sintoma,id_alumno)
-								Values($sintomas[$i],$id_alumno)";
-								$rspta2=mysqli_query( $conexion, $consulta2 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-						
-						}
-					}
-					/**Secuelas*/
-					if($covid==1){
-						$secuelas=$datos->secuelas;
-                        $especificacion_secuela=$datos->especificacion_secuela;
-						for ($i=0;$i<count($secuelas) ;$i++)      
-						{ 		if($secuelas[$i] < 12 ){
-									$consulta3="INSERT INTO secuelas_codiv ( secuela,id_alumno)
-									Values($secuelas[$i],$id_alumno)";
-									$rspta3=mysqli_query( $conexion, $consulta3 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-								}else if($secuelas[$i] == 12){
-									$consulta3="INSERT INTO secuelas_codiv ( secuela, especificacion_secuela,id_alumno)
-									Values($secuelas[$i],'$especificacion_secuela',$id_alumno)";
-									$rspta3=mysqli_query( $conexion, $consulta3 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+					/**ENFERMEDADES*/
+					if ($enfermedad==1){
+						$enfermedades= $datos->enfermedades;
+						$especificacion_enfermedad = $datos->especificacion_enfermedad;
+						$especificacion_alergia = $datos->especificacion_alergia;
+						for ($i=0;$i<count($enfermedades) ;$i++)      
+						{ 		if($enfermedades[$i] != 8 && $enfermedades[$i] != 14){			
+									$consulta2="INSERT INTO enfermedad_alumno ( enfermedad,id_alumno)
+									Values($enfermedades[$i],$id_alumno)";
+									$rspta2=mysqli_query( $conexion, $consulta2 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+								}else if ($enfermedades[$i]==8){
+									$consulta2="INSERT INTO enfermedad_alumno ( enfermedad, especificacion_alergia,id_alumno)
+									Values($enfermedades[$i],'$especificacion_alergia',$id_alumno)";
+									$rspta2=mysqli_query( $conexion, $consulta2 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+								}else if ($enfermedades[$i]==14){
+									$consulta2="INSERT INTO enfermedad_alumno ( enfermedad, especificacion_enfermedad,id_alumno)
+									Values($enfermedades[$i],'$especificacion_enfermedad',$id_alumno)";
+									$rspta2=mysqli_query( $conexion, $consulta2 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 								}
-								
-						
 						}
 					}
-					/**Familiares Fallecidos*/
-					if($fallecido==1){
-						$familiares= $datos->familiares;
-						for ($i=0;$i<count($familiares) ;$i++)      
-						{ 		
-								$consulta4="INSERT INTO familiares_fallecidos ( familiar,id_alumno)
-								Values($familiares[$i],$id_alumno)";
-								$rspta4=mysqli_query( $conexion, $consulta4 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-						
-						}
+					/**DISCAPACIDAD*/
+					if ($discapacidad==1){
+						$diagnostico_discapacidad= $datos->diagnostico_discapacidad;
+						$cie10 = $datos->cie10;
+						$conadis = $datos->conadis;
+						$rui = $datos->rui;
+						$consulta3="INSERT INTO discapacidad_alumno ( diagnostico, cie10, conadis, rui,id_alumno)
+						Values('$diagnostico_discapacidad','$cie10','$conadis','$rui',$id_alumno)";
+						$rspta3=mysqli_query( $conexion, $consulta3 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 					}
 					echo json_encode($rspta);
 				break;
@@ -1137,7 +1127,7 @@
 				break;
 				case 'historial_medico':
 					$id_alumno=$datos->id_alumno;
-					$consulta="SELECT presion_arterial, pulso, respiracion, temperatura,diagnostico,registrar FROM evaluacion_medica where id_alumno=$id_alumno";
+					$consulta="SELECT presion_arterial, pulso, respiracion, temperatura,registrar FROM evaluacion_medica where id_alumno=$id_alumno";
 					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 					while ($row=mysqli_fetch_assoc($rspta)){
 						$response[] = $row;

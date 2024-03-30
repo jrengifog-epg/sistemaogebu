@@ -233,11 +233,10 @@
                         <form action="#" method="POST">
                             <div class="shadow overflow-hidden sm:rounded-md">
                                 <div class="px-4 py-5 bg-white sm:p-6">
-                                        <div class="grid grid-cols-6 gap-6 py-5">
-                                            <div class="col-span-6">
+                                    <div class="grid grid-cols-6 gap-6 py-5">
+                                        <div class="col-span-6">
                                             <legend class="text-base font-medium text-gray-900">Información Personal</legend>
                                         </div>
-
                                         <div class="col-span-6 sm:col-span-3">
                                             <label 
                                                 class="block text-sm font-medium text-gray-700">Fecha</label>
@@ -246,9 +245,9 @@
                                         </div>
                                         <div class="col-span-6 sm:col-span-3">
                                             <label 
-                                                class="block text-sm font-medium text-gray-700">Fecha Nacimiento</label>
-                                            <input type="date" 
-                                                class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-gray-400" v-model="fecha_nacimiento" :readonly="true">
+                                                class="block text-sm font-medium text-gray-700">DNI</label>
+                                            <input type="text" 
+                                                class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-gray-400" v-model="dni" :readonly="true">
                                         </div>
                                         <div class="col-span-6 sm:col-span-6 lg:col-span-3">
                                             <label  class="block text-sm font-medium text-gray-700">Nombres</label>
@@ -273,7 +272,7 @@
                                         <div class="col-span-6 sm:col-span-3">
                                             <label 
                                                 class="block text-sm font-medium text-gray-700">Presión Arterial</label>
-                                              <input type="text"
+                                            <input type="text"
                                             class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-m" v-model="presion_arterial" >
                                     
                                         </div>
@@ -290,7 +289,7 @@
                                                 class="block text-sm font-medium text-gray-700">Saturación</label>
                                             <input type="text" 
                                                     class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" v-model="respiracion">
-                                               
+                                            
                                         </div>
 
                                         <div class="col-span-6 sm:col-span-3">
@@ -475,7 +474,7 @@
                                                     </div>
                                                     <div class="flex items-start">
                                                         <div class="flex items-center h-5">
-                                                            <input id="alergia2" ame="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="2" v-model="alergias">
+                                                            <input id="alergia2" name="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="2" v-model="alergias">
                                                         </div>
                                                         <div class="ml-3 text-sm">
                                                             <label for="alergia2" class="font-medium text-gray-700">Sulfas</label>
@@ -483,7 +482,7 @@
                                                     </div>
                                                     <div class="flex items-start">
                                                         <div class="flex items-center h-5">
-                                                            <input id="alergia3" ame="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="3" v-model="alergias">
+                                                            <input id="alergia3" name="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="3" v-model="alergias">
                                                         </div>
                                                         <div class="ml-3 text-sm">
                                                             <label for="alergia3" class="font-medium text-gray-700">Aines</label>
@@ -491,7 +490,7 @@
                                                     </div>
                                                     <div class="flex items-start">
                                                         <div class="flex items-center h-5">
-                                                            <input id="alergia4" ame="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="4" v-model="alergias">
+                                                            <input id="alergia4" name="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="4" v-model="alergias">
                                                         </div>
                                                         <div class="ml-3 text-sm">
                                                             <label for="alergia4" class="font-medium text-gray-700">Diclofenaco</label>
@@ -499,7 +498,7 @@
                                                     </div>
                                                     <div class="flex items-start">
                                                         <div class="flex items-center h-5">
-                                                            <input id="alergia5" ame="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="5" v-model="alergias">
+                                                            <input id="alergia5" name="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="5" v-model="alergias">
                                                         </div>
                                                         <div class="ml-3 text-sm">
                                                             <label for="alergia5" class="font-medium text-gray-700">Celocoxib</label>
@@ -507,7 +506,7 @@
                                                     </div>
                                                     <div class="flex items-start">
                                                         <div class="flex items-center h-5">
-                                                            <input id="alergia6" ame="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="6" v-model="alergias">
+                                                            <input id="alergia6" name="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="6" v-model="alergias">
                                                         </div>
                                                         <div class="ml-3 text-sm">
                                                             <label for="alergia6" class="font-medium text-gray-700">Ibuprofeno</label>
@@ -515,7 +514,7 @@
                                                     </div>
                                                     <div class="flex items-start">
                                                         <div class="flex items-center h-5">
-                                                            <input id="alergia7" ame="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="7" v-model="alergias">
+                                                            <input id="alergia7" name="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="7" v-model="alergias">
                                                         </div>
                                                         <div class="ml-3 text-sm">
                                                             <label for="alergia7" class="font-medium text-gray-700">Naproxeno</label>
@@ -523,7 +522,7 @@
                                                     </div>
                                                     <div class="flex items-start">
                                                         <div class="flex items-center h-5">
-                                                            <input id="alergia8" ame="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="8" v-model="alergias">
+                                                            <input id="alergia8" name="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="8" v-model="alergias">
                                                         </div>
                                                         <div class="ml-3 text-sm">
                                                             <label for="alergia8" class="font-medium text-gray-700">Aspirina</label>
@@ -531,7 +530,7 @@
                                                     </div>
                                                     <div class="flex items-start">
                                                         <div class="flex items-center h-5">
-                                                            <input id="alergia9" ame="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="9" v-model="alergias">
+                                                            <input id="alergia9" name="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="9" v-model="alergias">
                                                         </div>
                                                         <div class="ml-3 text-sm">
                                                             <label for="alergia9" class="font-medium text-gray-700">Indometaxina</label>
@@ -539,7 +538,7 @@
                                                     </div>
                                                     <div class="flex items-start">
                                                         <div class="flex items-center h-5">
-                                                            <input id="alergia10" ame="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="10" v-model="alergias">
+                                                            <input id="alergia10" name="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="10" v-model="alergias">
                                                         </div>
                                                         <div class="ml-3 text-sm">
                                                             <label for="alergia10" class="font-medium text-gray-700">Proxican</label>
@@ -547,7 +546,7 @@
                                                     </div>
                                                     <div class="flex items-start">
                                                         <div class="flex items-center h-5">
-                                                            <input id="alergia11" ame="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="11" v-model="alergias">
+                                                            <input id="alergia11" name="alergia" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="11" v-model="alergias">
                                                         </div>
                                                         <div class="ml-3 text-sm">
                                                             <label for="alergia11" class="font-medium text-gray-700">Otros</label>
@@ -566,281 +565,56 @@
                                             <legend class="text-base font-medium text-gray-900">5. ¿Tiene alguna discapacidad?</legend>
                                         </div>
                                         <div class="col-span-6">
-                                            <input type="text"
-                                                class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-m" v-model="discapacidad" >
+                                            <select 
+                                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" v-model="discapacidad"  >
+                                                <option value="">--</option>
+                                                <option value="1">Si</option>
+                                                <option value="0">No</option>
+                                            </select>
                                         </div>
+                                        <div class="grid grid-cols-4 gap-4 col-span-6" v-if="discapacidad==1">
+                                            <div class="col-span-4 sm:col-span-2">
+                                                <label class="block text-sm font-medium text-gray-700">Diagnóstico</label>
+                                                <input type="text" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Escribe tu diagnóstico" v-model="diagnostico_discapacidad">
+                                            </div>
+                                            <div class="col-span-4 sm:col-span-2">
+                                                <label class="block text-sm font-medium text-gray-700">CIE10</label>
+                                                <input type="text" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Escribe algo" v-model="cie10">
+                                            </div>
+                                            <div class="col-span-4 sm:col-span-2">
+                                                <label class="block text-sm font-medium text-gray-700">CONADIS</label>
+                                                <select 
+                                                        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" v-model="conadis"  >
+                                                    <option value="">--</option>
+                                                    <option value="1">Si</option>
+                                                    <option value="0">No</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-span-4 sm:col-span-2">
+                                                <label class="block text-sm font-medium text-gray-700">RUI</label>
+                                                <input type="text" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Escribe algo" v-model="rui">
+                                            </div>
+                                        </div>
+
                                         <div class="col-span-6">
-                                            <legend class="text-base font-medium text-gray-900">6. ¿Tuviste COVID?</legend>
+                                            <legend class="text-base font-medium text-gray-900">6. ¿Tuviste secuelas de COVID-19?</legend>
                                         </div>
                                         
                                         <div class="col-span-6">
-                                            <select 
-                                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" v-model="covid">
-                                                <option value="">--</option>
-                                                <option value="1">Si</option>
-                                                <option value="0">No</option>
-                                            </select>
+                                            <input type="text" class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Secuela Covid" v-model="secuela_covid">
                                         </div>
-                                       
-                                        <div class="col-span-6" v-if="covid==1">
-                                            <legend class="text-base font-medium text-gray-900">¿Que sintomas presentaste?</legend>
-                                        </div>
-
-                                        <div class="col-span-6" v-if="covid==1">
-                                            <fieldset>
-                                                <div class="mt-4 space-y-4">
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="sintomas1" name="sintomas"  type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"  value="1" v-model="sintomas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="sintomas1" class="font-medium text-gray-700">Dolor de cabeza</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="sintomas2" name="sintomas"  type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="2" v-model="sintomas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="sintomas2" class="font-medium text-gray-700">Dolor Muscular</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="sintomas3" name="sintomas"  type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="3" v-model="sintomas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="sintomas3" class="font-medium text-gray-700">Dolor Articular</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="sintomas4" name="sintomas"  type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="4" v-model="sintomas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="sintomas4" class="font-medium text-gray-700">Fiebre</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="sintomas5" name="sintomas"  type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="5" v-model="sintomas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="sintomas5" class="font-medium text-gray-700">Pérdida del sentido del olfato o del gusto</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="sintomas6" name="sintomas"  type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="6" v-model="sintomas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="sintomas6" class="font-medium text-gray-700">Tos seca</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="sintomas7" name="sintomas"  type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="7" v-model="sintomas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="sintomas7" class="font-medium text-gray-700">Dificultad para respirar o sensación de falta de aire</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="sintomas8" name="sintomas"  type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="8" v-model="sintomas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="sintomas8" class="font-medium text-gray-700">Miedo</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="sintomas9" name="sintomas"  type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="9" v-model="sintomas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="sintomas9" class="font-medium text-gray-700">Ansiedad</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </div>
-
-                                        <div class="col-span-6" v-if="covid==1">
-                                            <legend class="text-base font-medium text-gray-900">¿Que secuelas te dejo el COVID?</legend>
-                                        </div>
-
-                                        <div class="col-span-6" v-if="covid==1">
-                                            <fieldset>
-                                                <div class="mt-4 space-y-4">
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="secuelas1" name="secuelas" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"   value="1" v-model="secuelas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="secuelas1" class="font-medium text-gray-700">Insomnio</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="secuelas2" name="secuelas" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="2" v-model="secuelas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="secuelas2" class="font-medium text-gray-700">Falta de aire</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="secuelas3" name="secuelas" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="3" v-model="secuelas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="secuelas3" class="font-medium text-gray-700">Falta de concentración</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="secuelas4" name="secuelas" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="4" v-model="secuelas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="secuelas4" class="font-medium text-gray-700">Depresión</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="secuelas5" name="secuelas" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="5" v-model="secuelas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="secuelas5" class="font-medium text-gray-700">Fatiga o Dolor de espalda</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="secuelas6" name="secuelas" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="6" v-model="secuelas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="secuelas6" class="font-medium text-gray-700">Taquicardia</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="secuelas7" name="secuelas" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="7" v-model="secuelas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="secuelas7" class="font-medium text-gray-700">Dolor Muscular</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="secuelas8" name="secuelas" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="8" v-model="secuelas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="secuelas8" class="font-medium text-gray-700">Dolor de pecho</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="secuelas9" name="secuelas" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="9" v-model="secuelas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="secuelas9" class="font-medium text-gray-700">Cansancio</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="secuelas10" name="secuelas" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="10" v-model="secuelas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="secuelas10" class="font-medium text-gray-700">Problemas renales</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="secuelas11" name="secuelas" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="11" v-model="secuelas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="secuelas11" class="font-medium text-gray-700">Caida de cabello</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="secuelas12" name="secuelas" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="12" v-model="secuelas">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="secuelas12" class="font-medium text-gray-700">Otros</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-span-6 sm:col-span-3">
-                                                        <label for="otro-1"
-                                                            class="block text-sm font-medium text-gray-700">Especifique</label>
-                                                        <input type="text" name="" id="otro-1" autocomplete="otro"
-                                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Especifique si marca otros"  v-model="especificacion_secuela">
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </div>
-
-                                        <div class="col-span-6" v-if="covid==1">
-                                            <legend class="text-base font-medium text-gray-900">¿Has tenido familiares fallecidos por COVID?</legend>
-                                        </div>
-                                        <div class="col-span-6" v-if="covid==1">
-                                            <select 
-                                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  v-model="fallecido">
-                                                <option value="">--</option>
-                                                <option value="1">Si</option>
-                                                <option value="0">No</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-span-6" v-if="fallecido==1">
-                                            <fieldset>
-                                                <div class="mt-4 space-y-4">
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="familiar1" name="familiar" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"  value="1" v-model="familiares">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="familiar1" class="font-medium text-gray-700">Papá</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="familiar2" name="familiar" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="2" v-model="familiares">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="familiar2" class="font-medium text-gray-700">Mamá</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="familiar3" name="familiar" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="3" v-model="familiares">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="familiar3" class="font-medium text-gray-700">Hermano</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="familiar4" name="familiar" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="4" v-model="familiares">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="familiar4" class="font-medium text-gray-700">Hijos</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-start">
-                                                        <div class="flex items-center h-5">
-                                                            <input id="familiar5" name="familiar" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="5" v-model="familiares">
-                                                        </div>
-                                                        <div class="ml-3 text-sm">
-                                                            <label for="familiar5" class="font-medium text-gray-700">Otros Familiares</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </div>
-                                         <div class="col-span-6">
-                                            <legend class="text-base font-medium text-gray-900">7. Diagnostico Salud</legend>
+                                        <div class="col-span-6">
+                                            <legend class="text-base font-medium text-gray-900">7. ¿Cuántas dosis de vacunas te aplicaste contra el covid-19?</legend>
                                         </div>
                                         <div class="col-span-6 ">
-                                            <textarea rows="5" 
-                                                class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md "  v-model="diagnostico"></textarea>
+                                            <select 
+                                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" v-model="dosis_vacuna"  >
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4 o más">4 o más</option>
+                                            </select>
                                         </div>
                                         <div class="col-span-6">
                                             <legend class="text-base font-medium text-gray-900">8. ¿Debe pasar al servicio Medico?</legend>
@@ -855,8 +629,6 @@
                                             </select>
                                         </div>
                                     </div>
-
-                                    
                                 </div>
                                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                                     <button type="button" @click="limpiarfiltro()"
@@ -872,7 +644,6 @@
                         </form>
                     </div>
                 </div>
-                <!-- This example requires Tailwind CSS v2.0+ -->
                 <div class="pt-4">
                     <h3 class="text-2xl font-medium leading-6 text-gray-900">Historial Evaluaciones Medicas</h3>
                     <p class="mt-2 text-sm text-gray-600">historial de evaluaciones medicas</p>
@@ -904,10 +675,6 @@
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Temperatura
                                         </th>
-                                        <th scope="col"
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Diagnostico
-                                        </th>
                                     </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200" v-if="arrayHistorial.length > 0">
@@ -926,9 +693,6 @@
                                             </td>
                                             <td  class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                 {{h.temperatura}}
-                                            </td>
-                                            <td  class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                {{h.diagnostico}}
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1093,15 +857,15 @@ export default {
             medicamento:0,
             alergias:[],
             especificacion_medicamento:'',
-            covid:0,
-            sintomas:[],
-            secuelas:[],
-            especificacion_secuela:'',
-            fallecido:0,
-            familiares:[],
-            diagnostico:'',
+            secuela_covid:'',
+            dosis_vacuna:0,
             presintoma:'',
-            discapacidad:'',
+            discapacidad:0,
+            diagnostico_discapacidad:'',
+            cie10:'',
+            conadis:'',
+            rui:'',
+            diagnostico:'',
             servicio:'',
             /** discapacidad */
             arrayDiscapacidad:[],
@@ -1187,16 +951,15 @@ export default {
             this.medicamento='';
             this.alergias=[];
             this.especificacion_medicamento='';
-            this.covid='';
-            this.diagnostico = '';
+            this.secuela_covid='';
+            this.dosis_covid=0;
             this.presintoma='';
             this.discapacidad='';
-            this.sintomas=[];
-            this.secuelas=[];
+            this.diagnostico_discapacidad='';
+            this.cie10='';
+            this.conadis='';
+            this.rui='';
             this.servicio = '';
-            this.especificacion_secuela='';
-            this.fallecido='';
-            this.familiares=[];
         },
         loadAlumno(id_alumno){
             let me=this;
@@ -1350,17 +1113,19 @@ export default {
                             'temperatura':me.temperatura,
                             'presintoma': me.presintoma,
                             'enfermedad':me.enfermedad,
+                            'enfermedades':me.enfermedades,
+                            'especificacion_enfermedad':me.especificacion_enfermedad,
+                            'especificacion_alergia':me.especificacion_alergia,
                             'medicamento':me.medicamento,
                             'discapacidad':me.discapacidad,
+                            'diagnostico_discapacidad':me.diagnostico_discapacidad,
+                            'cie10':me.cie10,
+                            'conadis':me.conadis,
+                            'rui':me.rui,
                             'alergias':me.alergias,
                             'especificacion_medicamento':me.especificacion_medicamento,
-                            'covid':me.covid,
-                            'sintomas':me.sintomas,
-                            'secuelas':me.secuelas,
-                            'especificacion_secuela':me.especificacion_secuela,
-                            'fallecido':me.fallecido,
-                            'familiares':me.familiares,
-                            'diagnostico':me.diagnostico,
+                            'secuela_covid':me.secuela_covid,
+                            'dosis_vacuna':me.dosis_vacuna,
                             'servicio':me.servicio,
                             'id_alumno': me.id_alumno
                         }).then(function (response) {
