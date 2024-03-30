@@ -543,6 +543,7 @@ export default {
             this.alergias='';
             this.indice_masa='';
             this.servicio='';
+            this.diagnostico='';
         },
         loadAlumno(id_alumno){
             let me=this;

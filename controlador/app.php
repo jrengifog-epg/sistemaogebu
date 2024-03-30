@@ -1102,8 +1102,8 @@
 					$diagnostico = $datos->diagnostico;
 					$servicio = $datos->servicio;
 					$id_alumno= $datos->id_alumno;
-					$consulta="INSERT INTO evaluacion_nutricional (peso, talla,indice_masa,diagnostico, actividad_fisica, alergias,servicio,fecha,id_alumno)
-						Values('$peso','$talla','$indice_masa','$diagnostico',$actividad_fisica,'$alergias','$servicio','$fecha',$id_alumno)";
+					$consulta="INSERT INTO evaluacion_nutricional (peso,talla,indice_masa,actividad_fisica,alergias,diagnostico,servicio,fecha,id_alumno)
+						Values('$peso','$talla','$indice_masa','$actividad_fisica','$alergias','$diagnostico','$servicio','$fecha',$id_alumno)";
 					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 					echo json_encode($rspta);
 				break;
