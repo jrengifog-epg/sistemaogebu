@@ -62,6 +62,7 @@
 			require_once "./vistas/contenidos/404-view.php";
 		}
 	else:
+		ob_start();
 		session_start();
 
 		

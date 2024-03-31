@@ -15,7 +15,8 @@ $consulta="SELECT * FROM personas  WHERE usuario='".$usuario."' and clave='".$pa
 $dato =mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");;
 $result =mysqli_fetch_array($dato);
 if($result){ 
-
+        
+        ob_start();
         session_start();
         $_SESSION['id']=$result["id_persona"];
         $_SESSION['dni']=$result["dni"];
@@ -33,7 +34,7 @@ if($result){
         $dato1 =mysqli_query( $conexion, $consulta1 ) or die ( "Algo ha ido mal en la consulta a la base de datos");;
         $result1 =mysqli_fetch_array($dato1);
         if($result1){ 
-
+                ob_start();
                 session_start();
                 $_SESSION['id']=$result1["id_alumno"];
                 $_SESSION['dni']=$result1["dni"];
