@@ -147,8 +147,8 @@
                 </a>
                 <button @click="loadOpen1()" class="focus:outline-none">
                     <div class="w-10 h-10 bg-green-500 rounded-full overflow-hidden border-1 border-gray-100">
-                        <span class="text-white font-bold text-center block leading-10" v-if="tabnext1==0"><?php echo substr($_SESSION['nombres'],0,1)."".substr($_SESSION['apellidos'],0,1);?></span>
-                        <img  src="../vistas/img/alumnos/<?php echo $_SESSION['dni']?>.jpg" alt="" class="w-full h-full object-cover" v-else-if="tabnext1==1">
+                        <span class="text-white font-bold text-center block leading-10" ><?php echo substr($_SESSION['nombres'],0,1)."".substr($_SESSION['apellidos'],0,1);?></span>
+                        <!-- <img  src="../vistas/img/alumnos/<?php echo $_SESSION['dni']?>.jpg" alt="" class="w-full h-full object-cover" v-else-if="tabnext1==1"> -->
                     </div>
                 </button>
             </div>

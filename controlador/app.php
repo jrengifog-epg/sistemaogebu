@@ -158,7 +158,7 @@
 					$telefono= $datos->telefono;
 					$celular= $datos->celular;
 					$correo= $datos->correo;
-					$lugar= $datos->lugar;
+					$tipo_seguro= $datos->tipo_seguro;
 					$region_procedencia= $datos->region_procedencia;
 					$provincia_procedencia= $datos->provincia_procedencia;
 					$distrito_procedencia= $datos->distrito_procedencia;
@@ -166,9 +166,9 @@
 					//Aquí podríamos acceder a otras propiedades
 					$consulta="INSERT INTO informacion_personal (foto,sexo,fecha_nacimiento,codigo_universitario,region_nacimiento, 
 							   provincia_nacimiento,distrito_nacimiento,estado_civil,direccion,distrito_direccion,referencia, 
-							   telefono,celular,correo,lugar,region_procedencia,provincia_procedencia,distrito_procedencia,id_alumno)
+							   telefono,celular,correo,tipo_seguro,region_procedencia,provincia_procedencia,distrito_procedencia,id_alumno)
 							Values('$foto',$sexo,'$fecha_nacimiento','$codigo_universitario','$region_nacimiento','$provincia_nacimiento','$distrito_nacimiento',
-							$estado_civil,'$direccion','$distrito_direccion','$referencia','$telefono','$celular','$correo','$lugar','$region_procedencia','$provincia_procedencia',
+							$estado_civil,'$direccion','$distrito_direccion','$referencia','$telefono','$celular','$correo','$tipo_seguro','$region_procedencia','$provincia_procedencia',
 							'$distrito_procedencia',$id_alumno)";
 					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 					/**Declaracion_jurada */
@@ -189,27 +189,14 @@
 					$otros_estudios= $datos->otros_estudios;
 					$otra_universidad= $datos->otra_universidad;
 					$especificacion_universidad= $datos->especificacion_universidad;
-					$trabajo= $datos->trabajo;
-					$dependencia_economica= $datos->dependencia_economica;
-					$pension= $datos->pension;
 					$id_alumno= $datos->id_alumno;
 					$consulta="INSERT INTO informacion_educacional (fecha_secundaria, tipo_colegio, especificacion_colegio, modalidad, 
 								tipo_preparacion, especificacion_preparacion, otros_estudios, otra_universidad, especificacion_universidad, 
-								trabajo, dependencia_economica, pension, id_alumno)
+								id_alumno)
 								Values('$fecha_secundaria',$colegio,'$especificacion_colegio',$modalidad,$preparacion,'$especificacion_preparacion',
-								$otros_estudios,$otra_universidad,'$especificacion_universidad',$trabajo,$dependencia_economica,$pension,$id_alumno)";
+								$otros_estudios,$otra_universidad,'$especificacion_universidad',$id_alumno)";
 					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-					/**Aspectos_universitarios*/
-					$aspectos= $datos->aspectos;
-					for ($i=0;$i<count($aspectos) ;$i++)      
-					{ 
-
-						$consulta1="INSERT INTO aspectos_universidad (id_alumno,aspecto)
-						Values($id_alumno,$aspectos[$i])";
-						$rspta1=mysqli_query( $conexion, $consulta1 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-						
-
-					} 
+					
 					/** Otros_estudios*/
 					$tipo_estudio=$datos->tipo_estudio;
 					$estudio=$datos->estudio;
@@ -220,59 +207,7 @@
 									Values($tipo_estudio,$estudio,'$especificacion_estudio',$nivel_estudio,$id_alumno)";
 						$rspta2=mysqli_query( $conexion, $consulta2 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 					}
-					/**Trabajos */
-					$sueldo=$datos->sueldo;
-					$centro_trabajo=$datos->centro_trabajo;
-					$cargo=$datos->cargo;
-					$condicion=$datos->condicion;
-					if($trabajo==1){
-						$consulta3="INSERT INTO trabajos (sueldo, centro_trabajo, cargo, condicion, id_alumno)
-									Values('$sueldo','$centro_trabajo','$cargo',$condicion,$id_alumno)";
-						$rspta3=mysqli_query( $conexion, $consulta3 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-					}
-					/**Pension */
-					$monto=$datos->monto;
-					$frecuencia=$datos->frecuencia;
-					if($pension==1){
-						$consulta4="INSERT INTO pensiones(monto, frecuencia, id_alumno)
-									Values('$monto','$frecuencia',$id_alumno)";
-						$rspta4=mysqli_query( $conexion, $consulta4 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-					}
-					/**Idiomas */
-					$arrayidiomas=$datos->arrayidiomas;
-					$especificacion_idioma=$datos->especificacion_idioma;
-					$nivel_idioma=$datos->nivel_idioma;
-					for ($i=0;$i<count($arrayidiomas) ;$i++)      
-					{ 
-						if($arrayidiomas[$i] == 1){
-							$consulta5="INSERT INTO otros_idiomas (idioma,nivel,id_alumno)
-							Values($arrayidiomas[$i],$nivel_idioma[0],$id_alumno)";
-							$rspta5=mysqli_query( $conexion, $consulta5 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-						}
-						else if($arrayidiomas[$i] == 2){
-							$consulta5="INSERT INTO otros_idiomas (idioma,nivel,id_alumno)
-							Values($arrayidiomas[$i],$nivel_idioma[1],$id_alumno)";
-							$rspta5=mysqli_query( $conexion, $consulta5 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-						}
-						else if($arrayidiomas[$i] == 3){
-							$consulta5="INSERT INTO otros_idiomas (idioma,nivel,id_alumno)
-							Values($arrayidiomas[$i],$nivel_idioma[2],$id_alumno)";
-							$rspta5=mysqli_query( $conexion, $consulta5 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-						}
-						else if($arrayidiomas[$i] == 4){
-							$consulta5="INSERT INTO otros_idiomas (idioma,nivel,id_alumno)
-							Values($arrayidiomas[$i],$nivel_idioma[3],$id_alumno)";
-							$rspta5=mysqli_query( $conexion, $consulta5 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-						}
-						else if($arrayidiomas[$i] == 5){
-							$consulta5="INSERT INTO otros_idiomas (idioma,especifique,nivel,id_alumno)
-							Values($arrayidiomas[$i],'$especificacion_idioma',$nivel_idioma[4],$id_alumno)";
-							$rspta5=mysqli_query( $conexion, $consulta5 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-						}
-						
-						
-
-					} 
+					
 					echo json_encode($rspta);
 
 				break;
@@ -329,6 +264,31 @@
 					echo json_encode($rspta);
 				break;
 				case 'guardarinfoeconomico':
+					    /*trabajo */
+						$id_alumno= $datos->id_alumno;
+						$trabajo=$datos->trabajo;
+						$dependencia_economica= $datos->dependencia_economica;
+						$pension= $datos->pension;
+						$sueldo=$datos->sueldo;
+						$centro_trabajo=$datos->centro_trabajo;
+						$cargo=$datos->cargo;
+						if ($datos->condicion == 1) {
+							$condicion = 1;
+						} else {
+							$condicion = 0;
+						}
+						$consulta3="INSERT INTO trabajos (trabajo,sueldo,centro_trabajo,cargo,condicion,dependencia_economica, pension, id_alumno)
+									Values($trabajo,'$sueldo','$centro_trabajo','$cargo',$condicion,$dependencia_economica,$pension,$id_alumno)";
+						$rspta3=mysqli_query( $conexion, $consulta3 ) or die ( "Algo ha ido mal en la consulta a la base de datos t");
+					
+						/**Pension */
+						$monto=$datos->monto;
+						$frecuencia=$datos->frecuencia;
+						if($pension==1){
+							$consulta4="INSERT INTO pensiones(monto, frecuencia, id_alumno)
+										Values('$monto','$frecuencia',$id_alumno)";
+							$rspta4=mysqli_query( $conexion, $consulta4 ) or die ( "Algo ha ido mal en la consulta a la base de datos e");
+						}
 						/**Ingresos */
 						$alquiler_inmueble= $datos->alquiler_inmueble;
 						$alquiler_vehiculos= $datos->alquiler_vehiculos;
@@ -342,12 +302,11 @@
 						$envio_extranjero= $datos->envio_extranjero;
 						$envio_provincias= $datos->envio_provincias;
 						$ingresos_otros= $datos->ingresos_otros;
-						$id_alumno= $datos->id_alumno;
 						$consulta="INSERT INTO ingresos (alquiler_inmueble, alquiler_vehiculos, trabajos_eventuales, negocio_propio, sueldo, pension_viudez, pension_orfandad, 
 								pension_incapacidad, pension_alimenticia, envio_extranjero, envio_provincias, otros, id_alumno)
 								Values('$alquiler_inmueble','$alquiler_vehiculos','$trabajos_eventuales','$negocio_propio','$sueldo','$pension_viudez',
 								'$pension_orfandad','$pension_incapacidad','$pension_alimenticia','$envio_extranjero','$envio_provincias','$ingresos_otros',$id_alumno)";
-						$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+						$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos i");
 						/**Egresos */
 						$alimentacion= $datos->alimentacion;
 						$agua= $datos->agua;
@@ -912,7 +871,7 @@
 				case 'informacionPersonal':
 					$id_alumno=$datos->id_alumno;
 					$consulta="SELECT p.foto,p.sexo as genero,p.estado_civil as id_civil,e.estado_civil ,p.fecha_nacimiento,p.codigo_universitario,p.direccion,p.distrito_direccion,p.celular,p.telefono,p.correo,
-								region_nacimiento,provincia_nacimiento,distrito_nacimiento,referencia,lugar,region_procedencia,provincia_procedencia,distrito_procedencia,
+								region_nacimiento,provincia_nacimiento,distrito_nacimiento,referencia,tipo_seguro,region_procedencia,provincia_procedencia,distrito_procedencia,
 								(SELECT u.nombre_ubigeo FROM ubigeo u where u.cod_region=p.region_nacimiento and u.cod_provincia=0 and u.cod_distrito=0) AS region,
 								(SELECT u.nombre_ubigeo FROM ubigeo u where u.cod_region=p.region_nacimiento and u.cod_provincia=p.provincia_nacimiento and u.cod_distrito=0) AS provincia,
 								(SELECT u.nombre_ubigeo FROM ubigeo u where u.cod_region=p.region_nacimiento and u.cod_provincia=p.provincia_nacimiento and u.cod_distrito=p.distrito_nacimiento) AS distrito
@@ -927,7 +886,7 @@
 				break;
 				case 'informacionEducacional':
 					$id_alumno=$datos->id_alumno;
-					$consulta="SELECT fecha_secundaria, tipo_colegio, especificacion_colegio, modalidad, tipo_preparacion, especificacion_preparacion, otros_estudios, otra_universidad, especificacion_universidad, trabajo, dependencia_economica, pension
+					$consulta="SELECT fecha_secundaria, tipo_colegio, especificacion_colegio, modalidad, tipo_preparacion, especificacion_preparacion, otros_estudios, otra_universidad, especificacion_universidad
 								FROM informacion_educacional e 
 								where e.id_alumno=$id_alumno";
 					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
@@ -1225,7 +1184,7 @@
 					$telefono= $datos->telefono;
 					$celular= $datos->celular;
 					$correo= $datos->correo;
-					$lugar= $datos->lugar;
+					$tipo_seguro= $datos->tipo_seguro;
 					$region_procedencia= $datos->region_procedencia;
 					$provincia_procedencia= $datos->provincia_procedencia;
 					$distrito_procedencia= $datos->distrito_procedencia;
@@ -1233,7 +1192,7 @@
 					//Aquí podríamos acceder a otras propiedades
 					$consulta="UPDATE informacion_personal SET foto = '$foto',sexo = $sexo,fecha_nacimiento='$fecha_nacimiento',codigo_universitario ='$codigo_universitario',region_nacimiento='$region_nacimiento', 
 					provincia_nacimiento='$provincia_nacimiento',distrito_nacimiento='$distrito_nacimiento',estado_civil=$estado_civil,direccion='$direccion',distrito_direccion='$distrito_direccion',referencia ='$referencia', 
-					telefono='$telefono',celular='$celular',correo='$correo',lugar='$lugar',region_procedencia='$region_procedencia',provincia_procedencia='$provincia_procedencia',distrito_procedencia='$distrito_procedencia' where id_alumno=$id_alumno";
+					telefono='$telefono',celular='$celular',correo='$correo',tipo_seguro='$tipo_seguro',region_procedencia='$region_procedencia',provincia_procedencia='$provincia_procedencia',distrito_procedencia='$distrito_procedencia' where id_alumno=$id_alumno";
 					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 					echo json_encode($rspta);
 				break;
@@ -1247,26 +1206,10 @@
 					$otros_estudios= $datos->otros_estudios;
 					$otra_universidad= $datos->otra_universidad;
 					$especificacion_universidad= $datos->especificacion_universidad;
-					$trabajo= $datos->trabajo;
-					$dependencia_economica= $datos->dependencia_economica;
-					$pension= $datos->pension;
 					$id_alumno= $datos->id_alumno;
 					//Aquí podríamos acceder a otras propiedades
-					$consulta="UPDATE informacion_educacional SET fecha_secundaria='$fecha_secundaria',tipo_colegio=$colegio,especificacion_colegio='$especificacion_colegio',modalidad=$modalidad,tipo_preparacion=$preparacion,especificacion_preparacion='$especificacion_preparacion',otros_estudios=$otros_estudios,otra_universidad=$otra_universidad,especificacion_universidad='$especificacion_universidad',trabajo=$trabajo,dependencia_economica=$dependencia_economica,pension=$pension where id_alumno=$id_alumno";
+					$consulta="UPDATE informacion_educacional SET fecha_secundaria='$fecha_secundaria',tipo_colegio=$colegio,especificacion_colegio='$especificacion_colegio',modalidad=$modalidad,tipo_preparacion=$preparacion,especificacion_preparacion='$especificacion_preparacion',otros_estudios=$otros_estudios,otra_universidad=$otra_universidad,especificacion_universidad='$especificacion_universidad' where id_alumno=$id_alumno";
 					$rspta=mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-					/**Aspectos_universitarios*/
-					$aspectos= $datos->aspectos;
-					$eliminar1="DELETE FROM aspectos_universidad WHERE id_alumno=$id_alumno";
-					mysqli_query( $conexion, $eliminar1 ) or die ( "Algo ha ido mal en la eliminacion de datos");
-					for ($i=0;$i<count($aspectos) ;$i++)      
-					{ 
-
-						$consulta1="INSERT INTO aspectos_universidad (id_alumno,aspecto)
-						Values($id_alumno,$aspectos[$i])";
-						$rspta1=mysqli_query( $conexion, $consulta1 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-						
-
-					}
 					/** Otros_estudios*/
 					$tipo_estudio=$datos->tipo_estudio;
 					$estudio=$datos->estudio;
@@ -1279,63 +1222,6 @@
 									Values($tipo_estudio,$estudio,'$especificacion_estudio',$nivel_estudio,$id_alumno)";
 						$rspta2=mysqli_query( $conexion, $consulta2 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 					}
-					/**Trabajos */
-					$sueldo=$datos->sueldo;
-					$centro_trabajo=$datos->centro_trabajo;
-					$cargo=$datos->cargo;
-					$condicion=$datos->condicion;
-					$eliminar3="DELETE FROM trabajos WHERE id_alumno=$id_alumno";
-					mysqli_query( $conexion, $eliminar3 ) or die ( "Algo ha ido mal en la eliminacion de datos");
-					if($trabajo==1){
-						$consulta3="INSERT INTO trabajos (sueldo, centro_trabajo, cargo, condicion, id_alumno)
-									Values('$sueldo','$centro_trabajo','$cargo',$condicion,$id_alumno)";
-						$rspta3=mysqli_query( $conexion, $consulta3 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-					}
-					/**Pension */
-					$monto=$datos->monto;
-					$frecuencia=$datos->frecuencia;
-					$eliminar4="DELETE FROM pensiones WHERE id_alumno=$id_alumno";
-					mysqli_query( $conexion, $eliminar4 ) or die ( "Algo ha ido mal en la eliminacion de datos");
-					if($pension==1){
-						$consulta4="INSERT INTO pensiones(monto, frecuencia, id_alumno)
-									Values('$monto','$frecuencia',$id_alumno)";
-						$rspta4=mysqli_query( $conexion, $consulta4 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-					}
-					/**Idiomas */
-					$arrayidiomas=$datos->arrayidiomas;
-					$especificacion_idioma=$datos->especificacion_idioma;
-					$nivel_idioma=$datos->nivel_idioma;
-					$eliminar5="DELETE FROM otros_idiomas WHERE id_alumno=$id_alumno";
-					mysqli_query( $conexion, $eliminar5 ) or die ( "Algo ha ido mal en la eliminacion de datos");
-					for ($i=0;$i<count($arrayidiomas) ;$i++)      
-					{ 
-						if($arrayidiomas[$i] == 1){
-							$consulta5="INSERT INTO otros_idiomas (idioma,nivel,id_alumno)
-							Values($arrayidiomas[$i],$nivel_idioma[0],$id_alumno)";
-							$rspta5=mysqli_query( $conexion, $consulta5 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-						}
-						else if($arrayidiomas[$i] == 2){
-							$consulta5="INSERT INTO otros_idiomas (idioma,nivel,id_alumno)
-							Values($arrayidiomas[$i],$nivel_idioma[1],$id_alumno)";
-							$rspta5=mysqli_query( $conexion, $consulta5 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-						}
-						else if($arrayidiomas[$i] == 3){
-							$consulta5="INSERT INTO otros_idiomas (idioma,nivel,id_alumno)
-							Values($arrayidiomas[$i],$nivel_idioma[2],$id_alumno)";
-							$rspta5=mysqli_query( $conexion, $consulta5 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-						}
-						else if($arrayidiomas[$i] == 4){
-							$consulta5="INSERT INTO otros_idiomas (idioma,nivel,id_alumno)
-							Values($arrayidiomas[$i],$nivel_idioma[3],$id_alumno)";
-							$rspta5=mysqli_query( $conexion, $consulta5 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-						}
-						else if($arrayidiomas[$i] == 5){
-							$consulta5="INSERT INTO otros_idiomas (idioma,especifique,nivel,id_alumno)
-							Values($arrayidiomas[$i],'$especificacion_idioma',$nivel_idioma[4],$id_alumno)";
-							$rspta5=mysqli_query( $conexion, $consulta5 ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-						}
-
-					} 
 					echo json_encode($rspta);
 				break;
 				/**nuevos */

@@ -85,7 +85,7 @@
                                     </div>
                                     <div class="border-t border-gray-200">
                                         <dl>
-                                            <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                            <!-- <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                 <dt class="text-sm font-medium text-gray-500">
                                                     Foto
                                                 </dt>
@@ -94,7 +94,7 @@
                                                         <img :src="'../vistas/img/alumnos/'+foto" alt="" class="w-20  object-cover ">
                                                     </div>
                                                 </dd>
-                                            </div>
+                                            </div> -->
                                             <div class="border-t border-gray-100"></div>
                                             <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                 <dt class="text-sm font-medium text-gray-500">
@@ -458,7 +458,7 @@
                                     </div>
                                     <div class="border-t border-gray-200">
                                         <dl>
-                                            <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                            <!-- <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                 <dt class="text-sm font-medium text-gray-500">
                                                     Foto
                                                 </dt>
@@ -467,7 +467,7 @@
                                                         <img :src="'../vistas/img/alumnos/'+foto" alt="" class="w-20  object-cover ">
                                                     </div>
                                                 </dd>
-                                            </div>
+                                            </div> -->
                                             <div class="border-t border-gray-100"></div>
                                             <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                 <dt class="text-sm font-medium text-gray-500">
@@ -774,7 +774,7 @@
                                     </div>
                                     <div class="border-t border-gray-200">
                                         <dl>
-                                            <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                            <!-- <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                 <dt class="text-sm font-medium text-gray-500">
                                                     Foto
                                                 </dt>
@@ -783,7 +783,7 @@
                                                         <img :src="'../vistas/img/alumnos/'+foto" alt="" class="w-20  object-cover ">
                                                     </div>
                                                 </dd>
-                                            </div>
+                                            </div> -->
                                             <div class="border-t border-gray-100"></div>
                                             <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                 <dt class="text-sm font-medium text-gray-500">
@@ -988,7 +988,7 @@
                                     </div>
                                     <div class="border-t border-gray-200">
                                         <dl>
-                                            <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                            <!-- <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                 <dt class="text-sm font-medium text-gray-500">
                                                     Foto
                                                 </dt>
@@ -997,7 +997,7 @@
                                                         <img :src="'../vistas/img/alumnos/'+foto" alt="" class="w-20  object-cover ">
                                                     </div>
                                                 </dd>
-                                            </div>
+                                            </div> -->
                                             <div class="border-t border-gray-100"></div>
                                             <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                 <dt class="text-sm font-medium text-gray-500">
@@ -1446,7 +1446,7 @@ export default {
         },
         loadInfo(){
             let me = this;
-            var url1 = '/countinforecreacion';
+            var url1 = '/countinfovivienda';
             axios.post(url1,{'id_alumno':me.$root.id}).then((response) => {
                     var respuesta = response.data;
                    if(respuesta.length > 0){

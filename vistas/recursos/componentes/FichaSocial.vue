@@ -46,7 +46,7 @@
                         nos servirá como base para poderte entregar un servicio eficiente y eficaz.</p>
                 </div>
                 <div class="flex md:w-4/12 justify-end items-center mb-4 hidden">
-                    <a href="#" class="text-white hover:text-red-600 bg-blue-400 rounded-lg px-3 py-2"  @click="generarPdf()" v-if=" (tabnext1==1) && (tabnext2==1) && (tabnext3==1) && (tabnext4==1) && (tabnext5==1) && (tabnext6==1) && (tabnext7==1)">Descargar Constancia</a>
+                    <a href="#" class="text-white hover:text-red-600 bg-blue-400 rounded-lg px-3 py-2"  @click="generarPdf()" v-if=" (tabnext1==1) && (tabnext2==1) && (tabnext3==1) && (tabnext4==1) && (tabnext5==1)">Descargar Constancia</a>
                 </div>
             </div>
             <div class="w-full flex flex-col sm:flex-row">
@@ -154,7 +154,7 @@
                         <div class="border-2 w-full rounded h-1 border-green-400 my-2" v-if="tabnext6==1"></div>
                     </div>
                 </div>-->
-                <div class="lg:w-1/4 sm:w-1/2 h-48 mb-4 border rounded-xl shadow-sm">
+                <!-- <div class="lg:w-1/4 sm:w-1/2 h-48 mb-4 border rounded-xl shadow-sm">
                     <div class="bg-ficha-deportes h-36 p-4 flex items-end rounded-t-xl">
                         <h4 class="text-white font-medium text-lg">
                             <a href="#"></a>
@@ -168,7 +168,7 @@
                         <p class="text-xs text-gray-500" v-if="tabnext7  > 0">Completado</p>
                         <div class="border-2 w-full rounded h-1 border-green-400 my-2" v-if="tabnext7 > 0"></div>
                     </div>
-                </div>
+                </div> -->
                 <div class="lg:w-1/4 sm:w-1/2 h-48 mb-4 border rounded-xl shadow-sm sm:ml-4">
                     <div class="bg-ficha-resultados h-36 p-4 flex items-end rounded-t-xl">
                         <h4 class="text-white font-medium text-lg">
@@ -313,7 +313,7 @@
                             <div class="px-4 py-5 bg-white sm:p-6">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700">
-                                        Foto de perfil
+                                        Constancia Sisfoh
                                     </label>
                                 </div>
                                 <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
@@ -515,15 +515,11 @@
                                         </select>
                                     </div>
                                     <div class="col-span-6">
-                                        <legend class="text-base font-medium text-gray-700">Lugar de procedencia</legend>
-                                    </div>
-
-                                    <div class="col-span-6">
-                                        <label for="procedencia"
-                                            class="block text-sm font-medium text-gray-700">Procedencia</label>
-                                        <input type="text" name="procedencia" id="procedencia"
+                                        <label for="tipo_seguro"
+                                            class="block text-sm font-medium text-gray-700">Tipo de Seguro</label>
+                                        <input type="text" name="tipo_seguro" id="tipo_seguro"
                                             autocomplete="street-address"
-                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="lugar">
+                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="tipo_seguro">
                                     </div>
                                     <div class="col-span-6">    
                                         <legend class="text-base font-medium text-gray-700">Teléfonos</legend>
@@ -623,13 +619,6 @@
                                         </select>
                                     </div>
 
-                                    <!-- <div class="col-span-6 sm:col-span-2">
-                                        <label for="otro-1"
-                                            class="block text-sm font-medium text-gray-700">Especifique</label>
-                                        <input type="text" name="" id="otro-1" autocomplete="otro"
-                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Especifique si selecciona otros"  v-model="especificacion_colegio">
-                                    </div> -->
-
                                     <div class="col-span-6 sm:col-span-2">
                                         <label for="modalidad" class="block text-sm font-medium text-gray-700">Modalidad de
                                             ingreso a la UNAP</label>
@@ -665,96 +654,6 @@
                                             <option value="4">Casa</option>
                                             <option value="5">Otros</option>
                                         </select>
-                                    </div>
-
-                                    <!-- <div class="col-span-6 sm:col-span-2">
-                                        <label for="otro-1"
-                                            class="block text-sm font-medium text-gray-700">Especifique</label>
-                                        <input type="text" name="" id="otro-1" autocomplete="otro"
-                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Especifique si selecciona otros"  v-model="especificacion_preparacion">
-                                    </div> -->
-
-                                    <div class="col-span-6">
-                                        <fieldset>
-                                            <legend class="text-base font-medium text-gray-900">Señale 3 Aspectos importantes que tenga la Universidad</legend>
-                                            <div class="mt-4 space-y-4">
-                                                <div class="flex items-start">
-                                                    <div class="flex items-center h-5">
-                                                        <input id="aspecto1" name="aspecto" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="1" v-model="aspectos">
-                                                    </div>
-                                                    <div class="ml-3 text-sm">
-                                                        <label for="aspecto1" class="font-medium text-gray-700">Infraestructura y mobiliarios adecuados adecuados</label>
-                                                    </div>
-                                                </div>
-                                                <div class="flex items-start">
-                                                    <div class="flex items-center h-5">
-                                                        <input id="aspecto2" name="aspecto" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="2" v-model="aspectos">
-                                                    </div>
-                                                    <div class="ml-3 text-sm">
-                                                        <label for="aspecto2" class="font-medium text-gray-700">Calidad en a enseñanza</label>
-                                                    </div>
-                                                </div>
-                                                <div class="flex items-start">
-                                                    <div class="flex items-center h-5">
-                                                        <input id="aspecto3" name="aspecto" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="3" v-model="aspectos">
-                                                    </div>
-                                                    <div class="ml-3 text-sm">
-                                                        <label for="aspecto3" class="font-medium text-gray-700">Exigencia académica o educativa</label>
-                                                    </div>
-                                                </div>
-                                                <div class="flex items-start">
-                                                    <div class="flex items-center h-5">
-                                                        <input id="aspecto4" name="aspecto" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="4" v-model="aspectos">
-                                                    </div>
-                                                    <div class="ml-3 text-sm">
-                                                        <label for="aspecto4" class="font-medium text-gray-700">Transparencia administrativa</label>
-                                                    </div>
-                                                </div>
-                                                <div class="flex items-start">
-                                                    <div class="flex items-center h-5">
-                                                        <input id="aspecto5" name="aspecto" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="5" v-model="aspectos">
-                                                    </div>
-                                                    <div class="ml-3 text-sm">
-                                                        <label for="aspecto5" class="font-medium text-gray-700">Tutoria y orientacion academica o educativa</label>
-                                                    </div>
-                                                </div>
-                                                <div class="flex items-start">
-                                                    <div class="flex items-center h-5">
-                                                        <input id="aspecto6" name="aspecto" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="6" v-model="aspectos">
-                                                    </div>
-                                                    <div class="ml-3 text-sm">
-                                                        <label for="aspecto6" class="font-medium text-gray-700">Espacios recreativos</label>
-                                                    </div>
-                                                </div>
-                                                <div class="flex items-start">
-                                                    <div class="flex items-center h-5">
-                                                        <input id="aspecto7" name="aspecto" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="7" v-model="aspectos">
-                                                    </div>
-                                                    <div class="ml-3 text-sm">
-                                                        <label for="aspecto7" class="font-medium text-gray-700">Buen trato</label>
-                                                    </div>
-                                                </div>
-                                                <div class="flex items-start">
-                                                    <div class="flex items-center h-5">
-                                                        <input id="aspecto8" name="aspecto" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="8" v-model="aspectos">
-                                                    </div>
-                                                    <div class="ml-3 text-sm">
-                                                        <label for="aspecto8" class="font-medium text-gray-700">Medios de información y difusión (boletines, revistas, radio, Tv)
-
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="flex items-start">
-                                                    <div class="flex items-center h-5">
-                                                        <input id="aspecto9" name="aspecto" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="9" v-model="aspectos">
-                                                    </div>
-                                                    <div class="ml-3 text-sm">
-                                                        <label for="aspecto9" class="font-medium text-gray-700">Profesores competentes y con valores
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </fieldset>
                                     </div>
 
                                     <div class="col-span-6">
@@ -845,187 +744,6 @@
                                         <input type="text" name="ingreso" id="univer" 
                                             class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="especificacion_universidad">
                                     </div>
-
-                                    <div class="col-span-6">
-                                        <fieldset>
-                                            <legend class="text-base font-medium text-gray-900">¿Domina otro idioma ademas del Castellano?</legend>
-                                            <div class="mt-4 space-y-4">
-                                                <div class="flex items-start">
-                                                    <div class="flex items-center h-5">
-                                                        <input id="comments" name="comments" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="1" v-model="arrayidiomas">
-                                                    </div>
-                                                    <div class="ml-3 text-sm">
-                                                        <label for="comments" class="font-medium text-gray-700">Inglés</label>
-                                                        <select id="nivel" name="country" autocomplete="estado civil"
-                                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" v-model="nivel_idioma[0]">
-                                                                <option value="" selected>--Nivel--</option>
-                                                                <option value="1">Basico</option>
-                                                                <option value="2">Intermedio</option>
-                                                                <option value="3">Avanzado</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="flex items-start">
-                                                    <div class="flex items-center h-5">
-                                                        <input id="comments" name="comments" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="2" v-model="arrayidiomas">
-                                                    </div>
-                                                    <div class="ml-3 text-sm">
-                                                        <label for="comments" class="font-medium text-gray-700">Frances</label>
-                                                        <select id="nivel" name="country" autocomplete="estado civil"
-                                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" v-model="nivel_idioma[1]">
-                                                                <option value="" selected>--Nivel--</option>
-                                                                <option value="1">Basico</option>
-                                                                <option value="2">Intermedio</option>
-                                                                <option value="3">Avanzado</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="flex items-start">
-                                                    <div class="flex items-center h-5">
-                                                        <input id="comments" name="comments" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="3" v-model="arrayidiomas">
-                                                    </div>
-                                                    <div class="ml-3 text-sm">
-                                                        <label for="comments" class="font-medium text-gray-700">Alemán</label>
-                                                        <select id="nivel" name="country" autocomplete="estado civil"
-                                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" v-model="nivel_idioma[2]">
-                                                                <option value="" selected>--Nivel--</option>
-                                                                <option value="1">Basico</option>
-                                                                <option value="2">Intermedio</option>
-                                                                <option value="3">Avanzado</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="flex items-start">
-                                                    <div class="flex items-center h-5">
-                                                        <input id="comments" name="comments" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="4" v-model="arrayidiomas">
-                                                    </div>
-                                                    <div class="ml-3 text-sm">
-                                                        <label for="comments" class="font-medium text-gray-700">Portugues</label>
-                                                        <select id="nivel" name="country" autocomplete="estado civil"
-                                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" v-model="nivel_idioma[3]">
-                                                                <option value="" selected>--Nivel--</option>
-                                                                <option value="1">Basico</option>
-                                                                <option value="2">Intermedio</option>
-                                                                <option value="3">Avanzado</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="flex items-start">
-                                                    <div class="flex items-center h-5">
-                                                        <input id="comments" name="comments" type="checkbox" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded" value="5" v-model="arrayidiomas">
-                                                    </div>
-                                                    <div class="ml-3 text-sm">
-                                                        <label for="comments" class="font-medium text-gray-700">Lengua Amazónica</label>
-                                                        <select id="nivel" name="country" autocomplete="estado civil"
-                                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" v-model="nivel_idioma[4]">
-                                                                <option value="" selected>--Nivel--</option>
-                                                                <option value="1">Basico</option>
-                                                                <option value="2">Intermedio</option>
-                                                                <option value="3">Avanzado</option>
-                                                        </select>
-                                                         <div class="flex items-center h-5 pt-5">
-                                                            <input type="text"  
-                                                                class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Especifique Lengua amazonica"  v-model="especificacion_idioma">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                    </div>
-
-                                    <div class="col-span-6">
-                                        <fieldset>
-                                            <div>
-                                                <legend class="text-base font-medium text-gray-900">¿Usted trabaja?</legend>
-                                            </div>
-                                            <div class="mt-4 space-y-4">
-                                                <div class="flex items-center">
-                                                    <input  type="radio" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300" value="1" v-model="trabajo">
-                                                    <label for="push_everything" class="ml-3 block text-sm font-medium text-gray-700">
-                                                        Si
-                                                    </label>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    <input  type="radio" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300" value="0" v-model="trabajo">
-                                                    <label for="push_email" class="ml-3 block text-sm font-medium text-gray-700">
-                                                        No
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                    </div>
-
-                                    <div class="col-span-6 sm:col-span-2" v-if="trabajo==1">
-                                        <label for="estado-civil" class="block text-sm font-medium text-gray-700">¿Cuanto gana?</label>
-                                        <input type="text" name="ingreso" id="ingreso" 
-                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="sueldo">
-                                    </div>
-
-                                    <div class="col-span-6 sm:col-span-2" v-if="trabajo==1">
-                                        <label for="genero" class="block text-sm font-medium text-gray-700">Centro de trabajo</label>
-                                        <input type="text" 
-                                        class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="centro_trabajo">
-                                    </div>
-
-                                    <div class="col-span-6 sm:col-span-2" v-if="trabajo==1">
-                                        <label for="ingreso"
-                                            class="block text-sm font-medium text-gray-700">Puesto</label>
-                                        <input type="text" name="ingreso" id="ingreso" autocomplete="ingreso"
-                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="cargo">
-                                    </div>
-
-                                    <div class="col-span-6 sm:col-span-3" v-if="trabajo==1">
-                                        <label for="facultad"
-                                            class="block text-sm font-medium text-gray-700">Condición laboral</label>
-                                        <select id="facultad" name="country" autocomplete="facultad"
-                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  v-model="condicion">
-                                            <option value="">--</option>
-                                            <option value="1">Estable</option>
-                                            <option value="2">Eventual</option>
-                                            <option value="3">Trabajo por horas</option>
-                                            <option value="4">Trabajo familiar no remunerado</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-span-6 " >
-                                        <label for="escuela" class="block text-sm font-medium text-gray-700">¿De quién depende económicamente?</label>
-                                        <select 
-                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"   v-model="dependencia_economica">
-                                            <option value="">--</option>
-                                            <option value="1">Padre</option>
-                                            <option value="2">Madre</option>
-                                            <option value="3"> Otros familiares</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-span-6 ">
-                                        <label for="especialidad" class="block text-sm font-medium text-gray-700">¿Recibe pensión?</label>
-                                        <select 
-                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  v-model="pension">
-                                            <option value="">--</option>
-                                            <option value="1">SI</option>
-                                            <option value="0">NO</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-span-6 sm:col-span-3" v-if="pension==1">
-                                        <label for="estado-civil" class="block text-sm font-medium text-gray-700">¿Cuanto?</label>
-                                        <input type="text" name="ingreso" id="ingreso" 
-                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="monto">
-                                    </div>
-
-                                    <div class="col-span-6 sm:col-span-3" v-if="pension==1">
-                                        <label for="facultad"
-                                            class="block text-sm font-medium text-gray-700">¿Con que frecuencia?</label>
-                                        <select 
-                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  v-model="frecuencia">
-                                            <option value="">--</option>
-                                            <option value="1">Semanal</option>
-                                            <option value="2">Quincenal</option>
-                                            <option value="3">Mensual</option>
-                                        </select>
-                                    </div>
-
                                 </div>
                             </div>
 
@@ -1294,271 +1012,6 @@
                                     </div>           
                                 </div>
                             </div>
-
-                            <!--<div class="px-4 py-5 bg-white sm:p-6">
-                                <div class="grid grid-cols-6 gap-6 py-5">
-
-                                    <div class="col-span-6">
-                                        <legend class="text-base font-medium text-gray-900">Si procede de otra localidad, ¿con quienes vives?</legend>
-                                    </div>
-
-                                    <div class="col-span-6">
-                                        <label for="egreso" class="block text-sm font-medium text-gray-700">Nombres y Apellidos</label>
-                                        <input type="text" 
-                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="familiar2">
-                                    </div>
-
-                                    <div class="col-span-6 sm:col-span-2">
-                                        <label for="colegio-procedencia" class="block text-sm font-medium text-gray-700">Fecha nacimiento</label>
-                                        <input type="date" 
-                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="parienteEdad2">
-                                    </div>
-
-                                    <div class="col-span-6 sm:col-span-2">
-                                        <label for="colegio-procedencia" class="block text-sm font-medium text-gray-700">Parentesco</label>
-                                        <input type="text" 
-                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="parentesco2">
-                                    </div>
-
-                                    <div class="col-span-6 sm:col-span-2">
-                                        <label for="otro-1"
-                                            class="block text-sm font-medium text-gray-700">Estado civil</label>
-                                        <select id="modalidad" name="colegio-procedencia" autocomplete="modalidad"
-                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" v-model="pariente_civil2">
-                                                <option value="" >--Estado civil--</option>
-                                                <option value="soltero(a)" >Soltero(a)</option>
-                                                <option value="casado(a)" >Casado(a)</option>
-                                                <option value="conviviente" >Conviviente</option>
-                                                <option value="separado(a)" >Separado(a)</option>
-                                                <option value="viudo(a)" >Viudo(a)</option>
-                                                <option value="divorciado(a)" >Divorciado(a)</option>
-
-                                        </select>
-                                    </div>
-
-                                    <div class="col-span-6 sm:col-span-3">
-                                        <label for="modalidad" class="block text-sm font-medium text-gray-700">Grado Instrucción</label>
-                                        <select 
-                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" v-model="grado_instruccion2">
-                                                <option value="" >--Grado instruccion--</option>
-                                                <option value="sin estudios" >Sin estudios</option>
-                                                <option value="Primaria" >Primaria</option>
-                                                <option value="Secundaria" >Secundaria</option>
-                                                <option value="Tecnico" >Tecnico</option>
-                                                <option value="Universitario" >Universitario</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-span-6 sm:col-span-3">
-                                        <label for="preparacion" class="block text-sm font-medium text-gray-700">Ocupación</label>
-                                        <input type="text"
-                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="ocupacion2">
-                                    </div>
-
-                                    <div class="col-span-6 sm:col-span-3">
-                                        <label for="preparacion" class="block text-sm font-medium text-gray-700">Centro Laboral</label>
-                                        <input type="text" name="egreso" id="egreso" autocomplete="egreso"
-                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="centro_laboral2">
-                                    </div>
-
-                                    <div class="col-span-6 sm:col-span-3">
-                                        <label for="preparacion" class="block text-sm font-medium text-gray-700">Ingresos S/.</label>
-                                        <input type="text" name="egreso" id="egreso" autocomplete="egreso"
-                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="ingreso_pariente2">
-                                    </div>
-
-                                    <div class="px-4 py-3 bg-gray-50 text-left sm:px-0">
-                                        <button type="button"
-                                                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" @click="addPariente2()">
-                                            Añadir
-                                        </button>
-                                    </div>
-                                    <div class="col-span-6">
-                                        <div class="flex flex-col">
-                                            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                                                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                                                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                                                    <table class="min-w-full divide-y divide-gray-200">
-                                                        <thead class="bg-gray-50">
-                                                        <tr>
-                                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                                Nombre y Apellidos
-                                                            </th>
-                                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                                F. nacimiento
-                                                            </th>
-                                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                                Parentesco
-                                                            </th>
-                                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                                Estado Civil
-                                                            </th>
-                                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                                G. Instruccion
-                                                            </th>
-                                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                                Ocupación
-                                                            </th>
-                                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                                Centro laboral
-                                                            </th>
-                                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                                Ingresos (S/)
-                                                            </th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody class="bg-white divide-y divide-gray-200" v-if="arrayParientes2.length > 0">
-                                                        | <tr v-for="(t,index) in arrayParientes2">
-                                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                                    <div class="flex items-center">
-                                                                        <div class="ml-4">
-                                                                            <div class="text-sm text-gray-500" v-text="t.familiar">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                                    <div class="flex items-center">
-                                                                        <div class="ml-4">
-                                                                            <div class="text-sm text-gray-500" v-text="t.parienteEdad">
-                                                                            
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                                    <div class="flex items-center">
-                                                                        <div class="ml-4">
-                                                                            <div class="text-sm text-gray-500" v-text="t.parentesco">
-                                                                                
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                                    <div class="flex items-center">
-                                                                        <div class="ml-4">
-                                                                            <div class="text-sm text-gray-500" v-text="t.pariente_civil">
-                                                                                
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                                    <div class="flex items-center">
-                                                                        <div class="ml-4">
-                                                                            <div class="text-sm text-gray-500" v-text="t.grado_instruccion">
-                                                                                
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                                    <div class="flex items-center">
-                                                                        <div class="ml-4">
-                                                                            <div class="text-sm text-gray-500" v-text="t.ocupacion">
-                                                                                
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                                    <div class="flex items-center">
-                                                                        <div class="ml-4">
-                                                                            <div class="text-sm text-gray-500"v-text="t.centro_laboral">
-                                                                                
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                                    <div class="flex items-center">
-                                                                        <div class="ml-4">
-                                                                            <div class="text-sm text-gray-500" v-text="t.ingreso">
-                                                                                
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                                    <div class="flex items-center">
-                                                                        <div class="ml-4">
-                                                                            <div class="text-sm text-gray-500">
-                                                                                <a  href="#" @click="eliminarPariente2(index)" class="inline-flex justify-center py-1 px-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">eliminar</a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                        <tbody class="bg-white divide-y divide-gray-200" v-else>
-                                                            <tr>
-                                                                <td  class="px-6 py-4 whitespace-nowrap">
-                                                                    <div class="flex items-center w-full text-center">
-                                                                        <div class="ml-4">
-                                                                            <div class="text-sm text-gray-500">
-                                                                            No hay Registro de Parientes
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>           
-                                </div>
-                            </div>-->
-
-                            <div class="px-4 py-5 bg-white sm:p-6">
-                                <div class="grid grid-cols-6 gap-6 py-5">
-
-                                    <div class="col-span-6">
-                                        <legend class="text-base font-medium text-gray-900">Si no vive con sus padres indique</legend>
-                                    </div>
-
-                                    <div class="col-span-6 sm:col-span-2">
-                                        <label for="colegio-procedencia" class="block text-sm font-medium text-gray-700">Lugar de residencia del Padre</label>
-                                        <input type="text" 
-                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="residencia_padre">
-                                    </div>
-
-                                    <div class="col-span-6 sm:col-span-2">
-                                        <label for="colegio-procedencia" class="block text-sm font-medium text-gray-700">Dirección</label>
-                                        <input type="text" 
-                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="direccion_padre">
-                                    </div>      
-                                    <div class="col-span-6 sm:col-span-2">
-                                        <label for="colegio-procedencia" class="block text-sm font-medium text-gray-700">Teléfono</label>
-                                        <input type="text" 
-                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="telefono_padre">
-                                    </div>      
-                                </div>
-
-                                <div class="grid grid-cols-6 gap-6 py-5">
-
-                                    <div class="col-span-6 sm:col-span-2">
-                                        <label for="colegio-procedencia" class="block text-sm font-medium text-gray-700">Lugar de residencia de la Madre</label>
-                                        <input type="text" 
-                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="residencia_madre">
-                                    </div>
-
-                                    <div class="col-span-6 sm:col-span-2">
-                                        <label for="colegio-procedencia" class="block text-sm font-medium text-gray-700">Dirección</label>
-                                        <input type="text" 
-                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="direccion_madre">
-                                    </div>      
-                                    <div class="col-span-6 sm:col-span-2">
-                                        <label for="colegio-procedencia" class="block text-sm font-medium text-gray-700">Teléfono</label>
-                                        <input type="text" 
-                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="telefono_madre">
-                                    </div>      
-                                </div>
-                            </div>
-
                             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                                 <button type="button" v-if="tipoAccion==1" @click="guardarInfoFamiliar()"
                                         class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
@@ -1604,8 +1057,103 @@
                     <form action="#" method="POST">
                         <div class="shadow overflow-hidden sm:rounded-md">
                             <div class="px-4 py-5 bg-white sm:p-6">
-
                                 <div class="grid grid-cols-6 gap-6 py-5">
+                                    <div class="col-span-6">
+                                        <fieldset>
+                                            <div>
+                                                <legend class="text-base font-medium text-gray-900">¿Usted trabaja?</legend>
+                                            </div>
+                                            <div class="mt-4 space-y-4">
+                                                <div class="flex items-center">
+                                                    <input  type="radio" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300" value="1" v-model="trabajo">
+                                                    <label for="push_everything" class="ml-3 block text-sm font-medium text-gray-700">
+                                                        Si
+                                                    </label>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input  type="radio" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300" value="0" v-model="trabajo">
+                                                    <label for="push_email" class="ml-3 block text-sm font-medium text-gray-700">
+                                                        No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+
+                                    <div class="col-span-6 sm:col-span-2" v-if="trabajo==1">
+                                        <label for="estado-civil" class="block text-sm font-medium text-gray-700">¿Cuanto gana?</label>
+                                        <input type="text" name="ingreso" id="ingreso" 
+                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="sueldo">
+                                    </div>
+
+                                    <div class="col-span-6 sm:col-span-2" v-if="trabajo==1">
+                                        <label for="genero" class="block text-sm font-medium text-gray-700">Centro de trabajo</label>
+                                        <input type="text" 
+                                        class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="centro_trabajo">
+                                    </div>
+
+                                    <div class="col-span-6 sm:col-span-2" v-if="trabajo==1">
+                                        <label for="ingreso"
+                                            class="block text-sm font-medium text-gray-700">Puesto</label>
+                                        <input type="text" name="ingreso" id="ingreso" autocomplete="ingreso"
+                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="cargo">
+                                    </div>
+
+                                    <div class="col-span-6 sm:col-span-3" v-if="trabajo==1">
+                                        <label for="facultad"
+                                            class="block text-sm font-medium text-gray-700">Condición laboral</label>
+                                        <select id="facultad" name="country" autocomplete="facultad"
+                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  v-model="condicion">
+                                            <option value="">--</option>
+                                            <option value="1">Estable</option>
+                                            <option value="2">Eventual</option>
+                                            <option value="3">Trabajo por horas</option>
+                                            <option value="4">Trabajo familiar no remunerado</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-span-6 " >
+                                        <label for="escuela" class="block text-sm font-medium text-gray-700">¿De quién depende económicamente?</label>
+                                        <select 
+                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"   v-model="dependencia_economica">
+                                            <option value="">--</option>
+                                            <option value="1">Padre</option>
+                                            <option value="2">Madre</option>
+                                            <option value="3"> Otros familiares</option>
+                                            <option value="4">Independiente</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-span-6 ">
+                                        <label for="especialidad" class="block text-sm font-medium text-gray-700">¿Recibe pensión?</label>
+                                        <select 
+                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  v-model="pension">
+                                            <option value="">--</option>
+                                            <option value="1">SI</option>
+                                            <option value="0">NO</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-span-6 sm:col-span-3" v-if="pension==1">
+                                        <label for="estado-civil" class="block text-sm font-medium text-gray-700">¿Cuanto?</label>
+                                        <input type="text" name="ingreso" id="ingreso" 
+                                            class="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" v-model="monto">
+                                    </div>
+
+                                    <div class="col-span-6 sm:col-span-3" v-if="pension==1">
+                                        <label for="facultad"
+                                            class="block text-sm font-medium text-gray-700">¿Con que frecuencia?</label>
+                                        <select 
+                                                class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"  v-model="frecuencia">
+                                            <option value="">--</option>
+                                            <option value="1">Semanal</option>
+                                            <option value="2">Quincenal</option>
+                                            <option value="3">Mensual</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-6 gap-6 py-5">
+                                    
                                     
                                     <div class="col-span-6">
                                         <legend class="text-base font-medium text-gray-900">Ingresos extras al presupuesto principal de la familia</legend>
@@ -3452,7 +3000,7 @@ export default {
             telefono:'',
             celular:'',
             correo:'',
-            lugar:'',
+            tipo_seguro:'',
             region_procedencia:'',
             provincia_procedencia:'',
             distrito_procedencia:'',
@@ -3463,7 +3011,6 @@ export default {
             modalidad:'',
             preparacion:'',
             especificacion_preparacion:'',
-            aspectos:[],
             otros_estudios:'',
             tipo_estudio:'',
             estudio:'',
@@ -3471,18 +3018,6 @@ export default {
             nivel_estudio:'',
             otra_universidad:'',
             especificacion_universidad:'',
-            trabajo:'',
-            sueldo:'',
-            centro_trabajo:'',
-            cargo:'',
-            condicion:'',
-            dependencia_economica:'',
-            pension:'',
-            monto:'',
-            frecuencia:'',
-            especificacion_idioma:'',
-            nivel_idioma:['','','','',''],
-            arrayidiomas: [],
             /** Informacion Familiar*/
             arrayParientes:[],
             arrayParientes2:[],
@@ -3508,6 +3043,16 @@ export default {
             residencia_madre:'',
             direccion_madre:'',
             telefono_madre:'',
+            /*trbajo*/
+            trabajo:'',
+            sueldo:'',
+            centro_trabajo:'',
+            cargo:'',
+            condicion:'',
+            dependencia_economica:'',
+            pension:'',
+            monto:'',
+            frecuencia:'',
             /** Ingresos*/
             alquiler_inmueble:0,
             alquiler_vehiculos:0,
@@ -3784,7 +3329,7 @@ export default {
                             'telefono': me.telefono,
                             'celular': me.celular,
                             'correo': me.correo,
-                            'lugar': me.lugar,
+                            'tipo_seguro': me.tipo_seguro,
                             'region_procedencia': me.region_procedencia,
                             'provincia_procedencia': me.provincia_procedencia,
                             'distrito_procedencia': me.distrito_procedencia,
@@ -3815,8 +3360,7 @@ export default {
             let me=this;
             if(me.sexo.length==0 || me.fecha_nacimiento.length==0 || isNaN(me.codigo_universitario)||me.region_nacimiento.length==0
                 || me.provincia_nacimiento.length==0 || me.distrito_nacimiento.length==0 || me.estado_civil.length==0 || me.direccion.length==0
-                || me.referencia.length==0 || me.celular.length < 9 || isNaN(me.celular) || me.correo.length==0 
-                || me.declaracion_jurada ==0 ){
+                || me.referencia.length==0 || me.declaracion_jurada ==0 ){
                 return 1;
             }else{
                 return 0;
@@ -3904,32 +3448,6 @@ export default {
                     // handle error
                     console.log(error);
                 });
-            var url6 = '/countinfosalud';
-            axios.post(url6,{'id_alumno':me.$root.id}).then((response) => {
-                    var respuesta = response.data;
-                    if(respuesta.length > 0){
-                        me.tabnext6 = respuesta[0]['cantidad'];
-                    }else{
-                        me.tabnext6 =0;
-                    }
-                })
-                .catch(function(error) {
-                    // handle error
-                    console.log(error);
-                });
-            var url7 = '/countinforecreacion';
-            axios.post(url7,{'id_alumno':me.$root.id}).then((response) => {
-                    var respuesta = response.data;
-                   if(respuesta.length > 0){
-                        me.tabnext7 = respuesta[0]['cantidad'];
-                    }else{
-                        me.tabnext7 =0;
-                    }
-                })
-                .catch(function(error) {
-                    // handle error
-                    console.log(error);
-                });
         },
         guardarInfoEducacional(){
             var url='/guardarinfoeducacional';
@@ -3961,29 +3479,20 @@ export default {
                             'otros_estudios': me.otros_estudios,
                             'otra_universidad': me.otra_universidad,
                             'especificacion_universidad': me.especificacion_universidad,
-                            'trabajo': me.trabajo,
-                            'dependencia_economica': me.dependencia_economica,
-                            'pension': me.pension,
-                            'aspectos': me.aspectos,
                             'tipo_estudio':me.tipo_estudio,
                             'estudio':me.estudio,
                             'especificacion_estudio':me.especificacion_estudio,
                             'nivel_estudio':me.nivel_estudio,
-                            'sueldo':me.sueldo,
-                            'centro_trabajo':me.centro_trabajo,
-                            'cargo':me.cargo,
-                            'condicion':me.condicion,
-                            'monto':me.monto,
-                            'frecuencia':me.frecuencia,
-                            'especificacion_idioma':me.especificacion_idioma,
-                            'nivel_idioma':me.nivel_idioma,
-                            'arrayidiomas':me.arrayidiomas,
                             'id_alumno': me.$root.id
                         }).then(function (response) {
                                 me.countInfo();
                                 me.pagina=0;
                             if(response.data==1){
-                                
+                                swal(
+                                'Guardado!!!',
+                                'Se guardo la informacion correctamente.',
+                                'success'
+                                );
                             }else{
                                 swal(
                                 'Error!!!',
@@ -4002,8 +3511,7 @@ export default {
         validarInfoEducacional(){
             let me=this;
             if(me.fecha_secundaria.length==0 || me.colegio.length==0 || me.modalidad.length==0 || me.preparacion.length==0
-                || me.aspectos.length < 3  || me.otros_estudios.length ==0 || me.otra_universidad.length ==0 || me.trabajo.length ==0
-                || me.dependencia_economica.length ==0 || me.pension.length ==0){
+                || me.otros_estudios.length ==0 || me.otra_universidad.length ==0 ){
                 return 1;
             }else{
                 return 0;
@@ -4112,6 +3620,11 @@ export default {
                             if(response.data==1){
                                 me.countInfo();
                                 me.pagina=0;
+                                swal(
+                                'Guardado!!!',
+                                'Se guardo la informacion correctamente.',
+                                'success'
+                                );
                             }else{
                                 swal(
                                 'Error!!!',
@@ -4156,6 +3669,15 @@ export default {
                     }).then((result) => {
                         let me = this;
                         axios.post(url,{
+                            'trabajo': me.trabajo,
+                            'dependencia_economica': me.dependencia_economica,
+                            'pension': me.pension,
+                            'sueldo':me.sueldo,
+                            'centro_trabajo':me.centro_trabajo,
+                            'cargo':me.cargo,
+                            'condicion':me.condicion,
+                            'monto':me.monto,
+                            'frecuencia':me.frecuencia,
                             'alquiler_inmueble':me.alquiler_inmueble,
                             'alquiler_vehiculos':me.alquiler_vehiculos,
                             'trabajos_eventuales':me.trabajos_eventuales,
@@ -4188,6 +3710,11 @@ export default {
                             if(response.data==1){
                                 me.countInfo();
                                 me.pagina=0;
+                                swal(
+                                'Guardado!!!',
+                                'Se guardo la informacion correctamente.',
+                                'success'
+                                );
                             }else{
                                 swal(
                                 'Error!!!',
@@ -4205,7 +3732,8 @@ export default {
         },
         validarInfoEconomia(){
             let me=this;
-            if(me.monto_ingreso < 0 || me.monto_egreso < 0){
+            if(me.monto_ingreso < 0 || me.monto_egreso < 0 || me.trabajo.length ==0
+                || me.dependencia_economica.length ==0 || me.pension.length ==0){
                 return 1;
             }else{
                 return 0;
@@ -4285,6 +3813,11 @@ export default {
                             if(response.data==1){
                                 me.countInfo();
                                 me.pagina=0;
+                                swal(
+                                'Guardado!!!',
+                                'Se guardo la informacion correctamente.',
+                                'success'
+                                );
                             }else{
                                 swal(
                                 'Error!!!',
@@ -4548,7 +4081,7 @@ export default {
                     me.celular=me.arrayInformacion[0]['celular'];
                     me.telefono=me.arrayInformacion[0]['telefono'];
                     me.correo=me.arrayInformacion[0]['correo'];
-                    me.lugar=me.arrayInformacion[0]['lugar'];
+                    me.tipo_seguro=me.arrayInformacion[0]['tipo_seguro'];
                     me.region_procedencia=me.arrayInformacion[0]['region_procedencia'];
                     me.provincia_dir();
                     me.provincia_procedencia=me.arrayInformacion[0]['provincia_procedencia'];
@@ -4577,42 +4110,6 @@ export default {
                     me.otros_estudios=me.arrayEducacion[0]['otros_estudios'];
                     me.otra_universidad=me.arrayEducacion[0]['otra_universidad'];
                     me.especificacion_universidad=me.arrayEducacion[0]['especificacion_universidad'];
-                    me.trabajo=me.arrayEducacion[0]['trabajo'];
-                    me.dependencia_economica=me.arrayEducacion[0]['dependencia_economica'];
-                    me.pension=me.arrayEducacion[0]['pension'];
-                }
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-            var url1= '/otrosIdiomas';
-            axios.post(url1,{'id_alumno':id}).then(function (response) {
-                let respuesta = response.data;
-                me.arrayInformacionidioma=respuesta;
-                for(var i=0;i< me.arrayInformacionidioma.length;i++){
-                    me.arrayidiomas.push(me.arrayInformacionidioma[i]['idioma']);
-                    if((me.arrayInformacionidioma[i]['idioma']-1) == 0){
-                        me.nivel_idioma[0]=me.arrayInformacionidioma[i]['nivel'];
-                    }else if((me.arrayInformacionidioma[i]['idioma']-1) == 1){
-                        me.nivel_idioma[1]=me.arrayInformacionidioma[i]['nivel'];
-                    }else if((me.arrayInformacionidioma[i]['idioma']-1) == 2){
-                        me.nivel_idioma[2]=me.arrayInformacionidioma[i]['nivel'];
-                    }else if((me.arrayInformacionidioma[i]['idioma']-1) == 3){
-                        me.nivel_idioma[3]=me.arrayInformacionidioma[i]['nivel'];
-                    }else if((me.arrayInformacionidioma[i]['idioma']-1) == 4){
-                        me.nivel_idioma[4]=me.arrayInformacionidioma[i]['nivel'];
-                        me.especificacion_idioma=me.arrayInformacionidioma[i]['especifique'];
-                    }
-                }
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-            var url2= '/aspectos_universidad';
-            axios.post(url2,{'id_alumno':id}).then(function (response) {
-                let respuesta = response.data;
-                for(var i=0;i< respuesta.length;i++){
-                    me.aspectos.push(respuesta[i]['aspecto']);
                 }
             })
             .catch(function (error) {
@@ -4750,7 +4247,7 @@ export default {
                             'telefono': me.telefono,
                             'celular': me.celular,
                             'correo': me.correo,
-                            'lugar': me.lugar,
+                            'tipo_seguro': me.tipo_seguro,
                             'region_procedencia': me.region_procedencia,
                             'provincia_procedencia': me.provincia_procedencia,
                             'distrito_procedencia': me.distrito_procedencia,
@@ -4760,7 +4257,11 @@ export default {
                                 me.countInfo();
                                 me.pagina=0;
                             if(response.data==1){
-                                
+                                swal(
+                                'Guardado!!!',
+                                'Se guardo la informacion correctamente.',
+                                'success'
+                                );
                             }else{
                                 swal(
                                 'Error!!!',
@@ -4806,23 +4307,10 @@ export default {
                             'otros_estudios': me.otros_estudios,
                             'otra_universidad': me.otra_universidad,
                             'especificacion_universidad': me.especificacion_universidad,
-                            'trabajo': me.trabajo,
-                            'dependencia_economica': me.dependencia_economica,
-                            'pension': me.pension,
-                            'aspectos': me.aspectos,
                             'tipo_estudio':me.tipo_estudio,
                             'estudio':me.estudio,
                             'especificacion_estudio':me.especificacion_estudio,
                             'nivel_estudio':me.nivel_estudio,
-                            'sueldo':me.sueldo,
-                            'centro_trabajo':me.centro_trabajo,
-                            'cargo':me.cargo,
-                            'condicion':me.condicion,
-                            'monto':me.monto,
-                            'frecuencia':me.frecuencia,
-                            'especificacion_idioma':me.especificacion_idioma,
-                            'nivel_idioma':me.nivel_idioma,
-                            'arrayidiomas':me.arrayidiomas,
                             'id_alumno': me.$root.id
                         }).then(function (response) {
                                 me.countInfo();
@@ -4830,7 +4318,11 @@ export default {
                                 me.arrayidiomas=[];
                                 me.aspectos=[];
                             if(response.data==1){
-                                
+                                swal(
+                                'Guardado!!!',
+                                'Se guardo la informacion correctamente.',
+                                'success'
+                                );
                             }else{
                                 swal(
                                 'Error!!!',

@@ -315,7 +315,7 @@
                                         </select>
                                     </div>
                                     <div class="col-span-6">
-                                        <legend class="text-base font-medium text-gray-900">4. Intolorancias o alergias</legend>
+                                        <legend class="text-base font-medium text-gray-900">4. Intolorancias</legend>
                                     </div>
                                     <div class="col-span-6 ">
                                         <textarea rows="5" 
