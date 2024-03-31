@@ -5,7 +5,7 @@
 	$conexion=con();
 	$response = array();
     $metodo = $_SERVER["REQUEST_METHOD"];
-	$ruta = implode('/', array_slice(explode("/", $_SERVER["REQUEST_URI"]), 4,1));
+	$ruta = implode('/', array_slice(explode("/", $_SERVER["REQUEST_URI"]), 3,1));
 	$datos = json_decode(file_get_contents("php://input"));
     function console_log( $data ){
 		echo '<script>';
