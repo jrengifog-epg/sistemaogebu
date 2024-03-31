@@ -53,6 +53,13 @@
 		if ($vistasR=="login") {
 			# code...
 			?>
+			<?php
+				ob_start();
+				session_start();
+				session_unset();
+				session_destroy();
+				ob_end_flush();
+			?>
 			<section id="app" class="full-box dashboard-contentPage">
 				<?php require_once "./vistas/contenidos/login-view.php"; ?>
 			</section>

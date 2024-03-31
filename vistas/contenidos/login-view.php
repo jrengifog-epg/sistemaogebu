@@ -1,11 +1,3 @@
-<?php
-    ob_start();
-    session_start();
-    session_unset();
-    session_destroy();
-    ob_end_flush();
-     
-?>
 <main>
 <login  v-if="validate==true"></login>
 <div class="flex w-full min-h-screen flex-col items-center px-8" v-else-if="validate==false">
