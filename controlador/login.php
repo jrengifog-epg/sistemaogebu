@@ -15,7 +15,6 @@ $consulta="SELECT * FROM personas  WHERE usuario='".$usuario."' and clave='".$pa
 $dato =mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");;
 $result =mysqli_fetch_array($dato);
 if($result){ 
-        
         ob_start();
         session_start();
         $_SESSION['id']=$result["id_persona"];
@@ -51,7 +50,6 @@ if($result){
             $datos_persona['login'] = false;
         }
 }
-       
    header('Content-Type: application/json');
    echo json_encode($datos_persona);
 ?>

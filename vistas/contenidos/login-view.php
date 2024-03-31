@@ -1,4 +1,3 @@
-<main>
 <?php
     ob_start();
     session_start();
@@ -7,6 +6,7 @@
     ob_end_flush();
      
 ?>
+<main>
 <login  v-if="validate==true"></login>
 <div class="flex w-full min-h-screen flex-col items-center px-8" v-else-if="validate==false">
     <main class="w-full flex justify-center items-center main-h mb-8 md:mb-0">
