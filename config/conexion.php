@@ -2,8 +2,8 @@
 function con (){
 	
 		$usuario = "root";
-	   	$password = "";
-	    $servidor = "localhost";
+	   	$password = "mysql_password#";
+	    $servidor = "mysql-contenedor";
 	    $basededatos = "db_ogebu";
 		// $usuario = "bienestar";
 	   	// $password = "BienestarAPP";

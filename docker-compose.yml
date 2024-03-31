@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  php-app:
+    build: .
+    networks:
+      - red-mysql
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./public:/var/www/html
+      - ./nginx-selfsigned.crt:/etc/nginx/ssl/nginx-selfsigned.crt
+      - ./nginx-selfsigned.key:/etc/nginx/ssl/nginx-selfsigned.key
+    depends_on:
+      - php-app
+    networks:
+      - red-mysql
+
+networks:
+  red-mysql:
+    external: true
