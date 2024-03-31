@@ -1,7 +1,7 @@
 # Sistema Ogebu
 
 ## Descripción
-Ogebu es un sistema de gestión de datos para el seguimiento y evaluación psicológica y médica de pacientes.
+Ogebu es un sistema de gestión de datos para el seguimiento y evaluación psicológica y médica de estudiantes.
 
 ## Novedades de la versión 1.2
 En esta versión, se han introducido varias mejoras significativas:
@@ -10,13 +10,20 @@ En esta versión, se han introducido varias mejoras significativas:
 
 - **Actualización de evaluación médica y nutricional:** Hemos mejorado la funcionalidad de la evaluación médica y nutricional para proporcionar un análisis más preciso y detallado de la salud de los pacientes. Con estas actualizaciones, los profesionales de la salud podrán realizar evaluaciones más completas y efectivas.
 
+- **Actualización de la ficha social:** Hemos mejorado la ficha social del ingresante.
+
 ## Instalación
 Para instalar y utilizar el sistema Ogebu, sigue los siguientes pasos:
 
-1. Clona este repositorio en tu máquina local.
-2. Instala las dependencias necesarias utilizando el gestor de paquetes adecuado para tu entorno.
-3. Configura las opciones de acuerdo a tus necesidades en el archivo de configuración.
-4. Ejecuta el sistema y comienza a utilizarlo para gestionar los datos de tus pacientes.
+1. Clona este repositorio en tu servidor.
+2. Configura la base de datos en el archivo **conexion.php** ubicado en la carpeta **config**
+3. Dar todos los permisos a la carpeta **img** donde se suben las fotos ubicado en la carpeta **vistas**
+4. listo para usar, el link de producion es **"https://bienestar.unapiquitos.edu.pe/"**
+- **En el caso de Cambiar la Url:**
+1. Instala **node** y las dependencias necesarias utilizando el gestor de paquetes adecuado para tu entorno con **npm install**.
+2. Modifique la Url en los archivos **configGeneral.php** ubicado en la carpeta **config** y **configGeneral.js** ubicado en la carpeta **vistas/recursos/js.**
+4. Vuelva a ejecutar el comando de produccion **npm run prod**
+5. Reinicie el servidor y listo para utilizar.
 
 ## Contribución
 ¡Agradecemos cualquier contribución que desees realizar para mejorar el sistema Ogebu! Si tienes ideas de nuevas funcionalidades, mejoras en el código o encuentras algún error, no dudes en abrir un problema o enviar un pull request.
